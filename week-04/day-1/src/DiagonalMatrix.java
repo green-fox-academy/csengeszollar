@@ -1,6 +1,7 @@
 public class DiagonalMatrix {
     public static void main(String[] args) {
-        int matrix[][] = new int[4][4];
+        int size = 4;
+        int matrix[][] = new int[size][size];
 
 
 
@@ -9,7 +10,7 @@ public class DiagonalMatrix {
                 if (i == j) {
                     matrix[i][j] += 1;
                 }
-                System.out.print(matrix[i][j]);
+                System.out.print(matrix[i][j] + " ");
             }
             System.out.println();
 

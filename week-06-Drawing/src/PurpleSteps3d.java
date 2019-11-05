@@ -4,25 +4,22 @@ import java.awt.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
-public class PurpleSteps {
+public class PurpleSteps3d {
     public static void mainDraw(Graphics graphics) {
         // Reproduce this:
-        // [https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/drawing/assets/r3.png]
-        int rectSize = 12;
+        // [https://github.com/green-fox-academy/teaching-materials/blob/master/workshop/drawing/assets/r4.png]
 
         graphics.setColor(new Color(149, 33, 246));
-        graphics.fillRect(12, 12, rectSize, rectSize);
 
-        for (int i = 1; i < 20; i++) {
-            graphics.fill3DRect(i * rectSize, i * rectSize, rectSize, rectSize, true);
+        int size = 12;
+        for (int i = 1; i < 7; i++) {
+            graphics.fill3DRect(size, size, size, size, true);
+            size *= 2;
         }
 
 
-    }
 
-   // public static void drawSquaresFunction (int x, int y, int rectSize, Graphics graphics) {
-    //    graphics.fillRect(10, 10, rectSize, rectSize);
-   // }
+    }
 
     // Don't touch the code below
     static int WIDTH = 320;

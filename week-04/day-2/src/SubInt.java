@@ -1,5 +1,5 @@
-public class SubInt {
-    public static void main(String[] args) {
+/*public class SubInt {
+  public static void main(String[] args) {
     int number = ;
     int[]matrix = ;
 
@@ -18,4 +18,4 @@ public class SubInt {
 
 
     }
-}
+} */

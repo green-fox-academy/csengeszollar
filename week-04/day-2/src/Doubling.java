@@ -5,8 +5,8 @@ public class Doubling {
         System.out.println(doubledA);
     }
 
-    public static int doublingFunction(int baseNum) {
-        int doubled = baseNum * 2;
+    public static int doublingFunction(int input) {
+        int doubled = input * 2;
         return doubled;
     }
 

@@ -1,7 +1,7 @@
 public class Summing {
     public static void main(String[] args) {
-        int given = 4;
-        System.out.println(sumFunction(given));
+        int a = 4;
+        System.out.println(sumFunction(a));
     }
 
     public static int sumFunction (int given) {

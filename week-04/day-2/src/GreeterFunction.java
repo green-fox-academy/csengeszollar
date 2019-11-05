@@ -4,8 +4,8 @@ public class GreeterFunction {
         System.out.println(greetFunction(al));
     }
 
-    public static String greetFunction (String al) {
-        String greeting = "Greetings dear, " + al + "!";
+    public static String greetFunction (String input) {
+        String greeting = "Greetings dear, " + input + "!";
         return greeting;
     }
 }

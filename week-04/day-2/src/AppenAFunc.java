@@ -3,8 +3,8 @@ public class AppenAFunc {
         String typo = "Chinchill";
         System.out.println(AppendAFunc(typo));
     }
-    public static String AppendAFunc(String typo) {
-        String appended = typo + "a";
+    public static String AppendAFunc(String input) {
+        String appended = input + "a";
         return appended;
     }
 }

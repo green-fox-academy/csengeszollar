@@ -55,7 +55,7 @@ public class ProductDatabase {
         int below = 0;
         for (Integer productPrices : priceList.values()) {
             if (productPrices < 300) {
-                below +=1;
+                below++; // a below erteket mindig eggyel novelem, amikor talal 300 alatti arat uaz mint below += 1
             }
         }
         System.out.println("There are " + below + " products below 300");

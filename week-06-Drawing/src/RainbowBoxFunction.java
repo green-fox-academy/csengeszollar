@@ -15,18 +15,38 @@ public class RainbowBoxFunction {
        // graphics.setColor(Color.PINK);
         //graphics.fillRect(WIDTH / 2 - size /2, HEIGHT / 2 - size / 2, size, size);
 
-        for (int i = 7; i > 0; i++) {
+       // for (int i = 7; i > 0; i++) {
 
-            drawSquareFunction(WIDTH / 7 * i, graphics);
+           // drawSquareFunction(WIDTH / 7 * i, graphics);
 
+       // }
+        Color r = new Color(255, 0, 0, 255);
+        Color o = new Color(255, 128, 0, 255);
+        Color y = new Color(255, 255, 0, 255);
+        Color g = new Color(0, 255, 0, 255);
+        Color b = new Color(0, 128, 255, 255);
+        Color i = new Color(83, 0, 217, 255);
+        Color v = new Color(66, 0, 132, 255);
+
+        Color[] rainbow = {r, o, y, g, b, i, v};
+
+        for (int j = 0; j < 7; j++) {
+            drawSquareToRainbow(WIDTH / 13 * ((6 - j) * 2 + 1), rainbow[j], graphics);
         }
-
-
     }
-        public static void drawSquareFunction (int size, Graphics graphics) {
-            graphics.setColor(new Color(((int)(Math.random()*(255 +1))), ((int)(Math.random()*(255 +1))), ((int)(Math.random()*(255 +1)))));
-            graphics.fillRect(WIDTH / 2 - size /2, HEIGHT / 2 - size / 2, size, size);
-        }
+
+    public static void drawSquareToRainbow (int squareSize, Color color, Graphics graphics) {
+        graphics.setColor(color);
+        graphics.fillRect(WIDTH / 2 - squareSize / 2, HEIGHT / 2 - squareSize / 2, squareSize, squareSize);
+    }
+
+
+
+
+        //public static void drawSquareFunction (int size, Graphics graphics) {
+           // graphics.setColor(new Color(((int)(Math.random()*(255 +1))), ((int)(Math.random()*(255 +1))), ((int)(Math.random()*(255 +1)))));
+           // graphics.fillRect(WIDTH / 2 - size /2, HEIGHT / 2 - size / 2, size, size);
+       // }
 
 
     // Don't touch the code below

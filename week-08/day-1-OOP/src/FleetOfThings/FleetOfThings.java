@@ -17,7 +17,7 @@ public class FleetOfThings {
         thing3.complete();
         thing4.complete();
 
-        
+
         // - You have the `Thing` class
         // - You have the `Fleet` class
         // - You have the `FleetOfThings` class with a `main` method

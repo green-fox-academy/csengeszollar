@@ -18,6 +18,6 @@ public class ParametricAverage {
             sum += number.nextInt();
         }
         System.out.println("Sum = " + sum + ", Average: " + sum / givenNumber);
-        
+
     }
 }

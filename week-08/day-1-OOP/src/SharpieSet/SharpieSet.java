@@ -19,7 +19,7 @@ public class SharpieSet {
         int amountOfUsableSharpies = 0;
         for (int i = 0; i < listOfSharpies.size(); i++) {
             if (listOfSharpies.get(i).inkAmount > 0) {
-                amountOfUsableSharpies ++;
+                amountOfUsableSharpies++;
             }
 
         } return amountOfUsableSharpies;

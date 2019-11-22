@@ -11,7 +11,6 @@ public class GreatestCommonDivisor {
         if (b == 0) {
             return a;
         }
-
         return greatestDivisor(b, a % b);
     }
 

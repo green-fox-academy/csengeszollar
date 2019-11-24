@@ -13,7 +13,7 @@ public class ElementFinder {
 
     public static String containsSeven(ArrayList numbers) {
         String contains7;
-        
+
         if (numbers.contains(7)) {
             contains7 = "Hooray";
         } else {

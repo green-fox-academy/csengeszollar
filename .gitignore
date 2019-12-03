@@ -1,4 +1,3 @@
-
 # Created by https://www.gitignore.io/api/java,intellij
 # Edit at https://www.gitignore.io/?templates=java,intellij
 
@@ -120,4 +119,9 @@ hs_err_pid*
 .idea
 out
 *.iml
+*.xml.idea
+out
+*.iml
 *.xml
+# if you have a mac
+.DS_Store

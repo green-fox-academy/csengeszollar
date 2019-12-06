@@ -30,7 +30,13 @@ public class Domino implements Comparable<Domino> {
                 return -1;
             }
             if (this.left == domino.left) {
-                return 0;
+                if (this.right < domino.right) {
+                    return -1;
+                }
+                if (this.right == domino.right) {
+                    return 0;
+                }else
+                    return 1;
             }
             return 1;
     }

@@ -1,6 +1,8 @@
 package main.java.animals;
 
-public class Bird extends Animal {
+import Flyable.Flyable;
+
+public class Bird extends Animal implements Flyable {
     private boolean hasBeak;
     private boolean hasFeather;
 
@@ -20,6 +22,21 @@ public class Bird extends Animal {
     @Override
     public String breed() {
         return "laying eggs.";
+
+    }
+
+    @Override
+    public void land() {
+
+    }
+
+    @Override
+    public void fly() {
+        System.out.println("Moving its wings up and down");
+    }
+
+    @Override
+    public void takeOff() {
 
     }
 }

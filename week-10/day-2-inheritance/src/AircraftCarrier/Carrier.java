@@ -13,7 +13,6 @@ public class Carrier {
         this.aircraftsCarrier = new ArrayList<>();
         this.healthPoint = healthPoint;
         this.ammoStorage = ammoStorage;
-
     }
 
     public List<Aircraft> getAircraftsCarrier() {
@@ -26,6 +25,10 @@ public class Carrier {
 
     public int getHealthPoint() {
         return healthPoint;
+    }
+
+    public void setHealthPoint(int healthPoint) {
+        this.healthPoint = healthPoint;
     }
 
     public void addNewAircraft(Aircraft aircraft) {
@@ -89,21 +92,27 @@ public class Carrier {
     }
 
     public void fight(Carrier carrier) {
-        int carriersAircraftAllDamage = 0;
-        for (int i = 0; i < this.aircraftsCarrier.size(); i++) {
-            for (int j = 0; j <aircraftsCarrier.get(i).getCurrentAmo() ; j++) {
-                aircraftsCarrier.get(i).fight();
-                carriersAircraftAllDamage += aircraftsCarrier.get(i).getAllDamage();
+        if (this.getHealthPoint() != 0 && carrier.getHealthPoint() != 0) {
+            int carriersAircraftAllDamage = 0;
+            for (int i = 0; i < this.aircraftsCarrier.size(); i++) {
+                for (int j = 0; j < aircraftsCarrier.get(i).getCurrentAmo(); j++) {
+                    aircraftsCarrier.get(i).fight();
+                    carriersAircraftAllDamage += aircraftsCarrier.get(i).getAllDamage();
+                }
+            }
+            if (carrier.getHealthPoint() > carriersAircraftAllDamage) {
+                carrier.setHealthPoint(carrier.getHealthPoint() - carriersAircraftAllDamage);
+            } else {
+                carrier.setHealthPoint(0);
+                System.out.println("It's dead Jim :(");
             }
         }
-        this.healthPoint -= carriersAircraftAllDamage;
     }
-
 
     public String getStatus() {
         String status = "";
         String carriersAircraftsStatus = "";
-       int carriersAircraftAllDamage = 0;
+        int carriersAircraftAllDamage = 0;
         for (int i = 0; i < aircraftsCarrier.size(); i++) {
             carriersAircraftsStatus += aircraftsCarrier.get(i).getStatus() + "\n";
             carriersAircraftAllDamage += aircraftsCarrier.get(i).getAllDamage();

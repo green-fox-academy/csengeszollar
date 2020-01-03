@@ -25,7 +25,14 @@ public class Main {
         System.out.println(aircraftCarrier1.getStatus());
         aircraftCarrier1.fight(aircraftCarrier2);
         System.out.println(aircraftCarrier1.getStatus());
+        aircraftCarrier1.fillAircrafts();
+        System.out.println(aircraftCarrier1.getStatus());
+        aircraftCarrier1.fight(aircraftCarrier2);
+        System.out.println(aircraftCarrier2.getStatus());
+        aircraftCarrier1.fillAircrafts();
+        System.out.println(aircraftCarrier1.getStatus());
 
+        
 //
 //        System.out.println(F16.getStatus());
 //        System.out.println(F16.refill(500));

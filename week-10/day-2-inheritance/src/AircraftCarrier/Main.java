@@ -32,7 +32,7 @@ public class Main {
         aircraftCarrier1.fillAircrafts();
         System.out.println(aircraftCarrier1.getStatus());
 
-        
+
 //
 //        System.out.println(F16.getStatus());
 //        System.out.println(F16.refill(500));

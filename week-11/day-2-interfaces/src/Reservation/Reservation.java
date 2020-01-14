@@ -5,7 +5,7 @@ import java.util.Random;
 public class Reservation implements Reservationy {
 
     private String name;
-    
+
     public Reservation() {
         this.name = "Booking#";
     }

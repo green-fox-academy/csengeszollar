@@ -2,10 +2,7 @@ package FishTank;
 
 public class Kong extends Fish {
     public Kong(String name) {
-        this.setName(name);
-        this.setHasMemoryProblem(false);
-        this.setColor("gold");
-        this.setWeight(1);
+        super(name, 1, "blue");
     }
 
     @Override

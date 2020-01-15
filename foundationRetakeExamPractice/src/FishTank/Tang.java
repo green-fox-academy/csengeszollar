@@ -1,12 +1,17 @@
 package FishTank;
 
 public class Tang extends Fish{
+    boolean hasAMemoryProblem;
 
     public Tang(String name) {
-        this.setName(name);
-        this.setHasMemoryProblem(true);
-        this.setColor("blue");
-        this.setWeight(1);
+        super(name, 1, "gold");
+        hasAMemoryProblem = true;
+    }
+
+    @Override
+    public void status() {
+        String status = String.format("%s, weight: %dg, color: %s, short-term memory loss:%b\n", getName(), getWeight(),getColor(), hasAMemoryProblem);
+        System.out.println(status);
     }
 
     @Override

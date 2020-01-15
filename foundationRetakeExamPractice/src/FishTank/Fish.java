@@ -4,17 +4,18 @@ public abstract class Fish {
     private String name;
     private int weight;
     private String color;
-    private boolean hasMemoryProblem;
 
-    public Fish(String name){
+    public Fish(String name, int weight, String color) {
         this.name = name;
+        this.weight = weight;
+        this.color = color;
     }
 
     public Fish(){
     }
 
     public void status() {
-        String status = String.format("%s, weight: %dg, color: %s, short-term memory loss: %b\n", name, weight,color, hasMemoryProblem);
+        String status = String.format("%s, weight: %dg, color: %s\n", name, weight,color);
         System.out.println(status);
     }
 
@@ -44,13 +45,7 @@ public abstract class Fish {
         this.color = color;
     }
 
-    public boolean isHasMemoryProblem() {
-        return hasMemoryProblem;
-    }
 
-    public void setHasMemoryProblem(boolean hasMemoryProblem) {
-        this.hasMemoryProblem = hasMemoryProblem;
-    }
 
 
 }

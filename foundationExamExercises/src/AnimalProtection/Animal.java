@@ -14,20 +14,20 @@ public class Animal {
     }
 
     public void heal() {
-        this.isHealthy = true;
+        isHealthy = true;
     }
 
     public boolean isAdoptable() {
-        if (this.isHealthy = true){
+        if (isHealthy = true){
             return true;
         } else return false;
     }
 
     public String toString() {
         String info = "";
-        if (!this.isHealthy) {
-            return info = this.name + " is not healthy (its healing costs: " + this.healCost + "€), and not adoptable\n";
-        }else return info = this.name + " is healthy, and adoptable\n";
+        if (!isHealthy) {
+            return info = name + " is not healthy (its healing costs: " + healCost + "€), and not adoptable\n";
+        }else return info = name + " is healthy, and adoptable\n";
     }
 
     public String getOwnerName() {

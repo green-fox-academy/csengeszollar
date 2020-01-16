@@ -11,7 +11,7 @@ public class doubled {
 
         String filename = "src/Double.txt";
 
-       decryptFunction(filename);
+        decryptFunction(filename);
 
         // Create a method that decrypts the duplicated-chars.txt
 
@@ -37,26 +37,25 @@ public class doubled {
 //                    System.out.println(" ");
 //                }
 //
-            }
+    }
 
-            public static void decryptFunction (String fileName) {
-                Path filePath = Paths.get(fileName);
-                try {
-                    List<String> text = new ArrayList<>();
-                    text = Files.readAllLines(filePath);
-                    for (int i = 0; i < text.size(); i++) {
-                        for (int j = 0; j < text.get(i).length(); j += 2) {
-                            System.out.print(text.get(i).charAt(j));
-                        }
-                        System.out.println();
-                    }
-                } catch(IOException e) {
-                    e.printStackTrace();
-                    System.out.println(" ");
+    public static void decryptFunction(String fileName) {
+        Path filePath = Paths.get(fileName);
+        try {
+            List<String> text = new ArrayList<>();
+            text = Files.readAllLines(filePath);
+            for (int i = 0; i < text.size(); i++) {
+                for (int j = 0; j < text.get(i).length(); j += 2) {
+                    System.out.print(text.get(i).charAt(j));
                 }
-
-
+                System.out.println();
             }
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println(" ");
+        }
+    }
+}
 
 //
 
@@ -77,4 +76,4 @@ public class doubled {
 //            }
 
 
-    }
+

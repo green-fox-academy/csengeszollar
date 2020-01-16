@@ -36,7 +36,7 @@ public class WeeklyFeedbackEvaluator {
         float averageOfPresSkills = (float) presSkills / lines.size();
         float averageOfHelpfulness = (float) helpfulness / lines.size();
         float averageOfExplanation = (float) explanation / lines.size();
-        
+
         HashMap<String, Float> evaluationMap = new HashMap<String, Float>();
         evaluationMap.put("matReview", averageOfMatReview);
         evaluationMap.put("presSkills", averageOfPresSkills);

@@ -21,9 +21,9 @@ public class Extension {
     int median(List<Integer> pool) {
         Collections.sort(pool);
         if (pool.size() % 2 == 0) {
-            return pool.get((pool.size() - 1) / 2 + pool.size() / 2) / 2;
+            return (pool.get(pool.size() / 2 - 1)) + (pool.get(pool.size() / 2)) / 2;
         }
-        return pool.get((pool.size() - 1 ) / 2);
+        return pool.get((pool.size() - 1) / 2);
     }
 
     boolean isVowel(char c) {

@@ -61,6 +61,16 @@ public class SumTest {
     }
 
     @Test
+    public void sum_withOneElement_shouldReturnTheAmount() throws ListDoesNotExistException {
+        numberList.add(2);
+
+        int expectedResult = 2;
+        int result = sum.sum(numberList);
+
+        assertEquals(expectedResult, result);
+    }
+
+    @Test
     public void sum_withNull() throws ListDoesNotExistException {
         numberList.add(null);
         numberList.add(1);

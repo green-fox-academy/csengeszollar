@@ -3,10 +3,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class logs {
     public static void main(String[] args) {
@@ -21,25 +18,41 @@ public class logs {
 
         try {
             log = Files.readAllLines(filePath);
-            List<String> IPAddressesWithDuplicates = new ArrayList<>();
-            for (int i = 0; i < log.size(); i++) {
-                String[] splittedLogLines = log.get(i).split(" ");
-                // minden 8. lesz egy IP cim
-                    System.out.println(splittedLogLines[8]);
-                    IPAddressesWithDuplicates.add(splittedLogLines[8]);
-                Set<String> uniqueIPAddresses = new HashSet<String>(IPAddressesWithDuplicates);
-
-
-
-
-            }
-        }
-        catch (IOException ex) {
+        } catch (IOException ex) {
             ex.printStackTrace();
         }
+        findUniqueIP(log);
+        calculateRatio(log);
+    }
+
+    public static void findUniqueIP(List<String> log) {
+        List<String> IPAddressesWithDuplicates = new ArrayList<>();
+        for (int i = 0; i < log.size(); i++) {
+            String[] splittedLogLines = log.get(i).split(" ");
+            // minden 8. lesz egy IP cim
+//            System.out.println(splittedLogLines[8]);
+            IPAddressesWithDuplicates.add(splittedLogLines[8]);
+        }
+        Set<String> uniqueIPAddresses = new HashSet<String>(IPAddressesWithDuplicates);
+        String[] uniqueIPAddressList = new String[uniqueIPAddresses.size()];
+        uniqueIPAddressList = uniqueIPAddresses.toArray(uniqueIPAddressList);
+        System.out.println(Arrays.toString(uniqueIPAddressList));
+    }
 
 
+    public static void calculateRatio(List<String> log) {
 
+        int numberOfGET = 0;
+        int numberOfPOST = 0;
 
+        for (int i = 0; i < log.size(); i++) {
+
+            if (log.get(i).contains("GET")) {
+                numberOfGET += 1;
+            } else if (log.get(i).contains("POST")) {
+                numberOfPOST += 1;
+            }
+        }
+        System.out.println(numberOfGET + " / " + numberOfPOST);
     }
 }

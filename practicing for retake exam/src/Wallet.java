@@ -33,7 +33,7 @@ public class Wallet {
         int amount = 33250;
 
         System.out.println(wallet(money, amount));
-        
+
     }
 
     public static HashMap wallet(HashMap<Integer, Integer> money, int amount) {

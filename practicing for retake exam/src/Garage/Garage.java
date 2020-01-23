@@ -71,12 +71,22 @@ public class Garage {
     }
 
     public int fill(int amountOfFuel) {
+//        infinite loopot ad :(
         Random rand = new Random();
-        while (amountOfFuel > 0) {
-            Car car = cars.get(rand.nextInt(cars.size()));
-            amountOfFuel = car.fill(amountOfFuel);
-        }
-
-        return amountOfFuel;
+//        while (amountOfFuel > 0) {
+//            Car car = cars.get(rand.nextInt(cars.size()));
+//            amountOfFuel = car.fill(amountOfFuel);
+//        }
+//        return amountOfFuel;
+            List<Car> garage = new ArrayList<Car>();
+            for (Car car : cars) {
+                garage.add(car);
+            }
+            while (amountOfFuel > 0 && garage.size() > 0) {
+                Car currentCar = garage.get(rand.nextInt(garage.size()));
+                amountOfFuel = currentCar.fill(amountOfFuel);
+                garage.remove(currentCar);
+            }
+            return amountOfFuel;
     }
 }

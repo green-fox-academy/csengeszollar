@@ -47,6 +47,10 @@ public abstract class Car {
         return licensePlate;
     }
 
+    public int getActualFuelLevel() {
+        return actualFuelLevel;
+    }
+
     public int getTankCapacity() {
         return tankCapacity;
     }

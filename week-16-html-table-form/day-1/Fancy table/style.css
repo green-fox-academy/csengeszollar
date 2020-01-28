@@ -1,0 +1,70 @@
+body {
+    background-color: rgb(21, 122, 216);
+    box-sizing: border-box;
+    font-family: 'Heebo', sans-serif;
+    font-weight: 100;
+    color: #566573;
+    width: 100%;
+    padding: 28px;
+  }
+
+  table{
+      border: 2px #C0C0C0;
+      border-collapse: collapse;
+      border-style: hidden; 
+  }
+
+  table td{
+       border: 2px solid#C0C0C0;
+  }
+
+  table, th, td {
+    font-family: 'Heebo', sans-serif;
+    text-align: left; 
+    color: #566573;
+  }
+
+  th {
+    background-color: #17202A;
+    color: #EAEDED;
+    height: 95px;
+    padding-left: 25px;
+    border-bottom-width: thick solid#C0C0C0;
+    font-size: 32px;
+    font-weight: normal;
+    border: 2px solid #778899;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color: #ABB2B9;
+  }
+
+  tr:nth-child(even){
+      background-color: #EAEDED;
+      color: #566573;
+  }
+
+  tr:nth-child(odd){
+    background-color: white;
+    color: #566573;
+}
+
+  td{
+  height: 70px;
+  padding: 5px 10px;
+  min-width: 375px;
+  max-width: 375px;
+  border-collapse: collapse;
+  padding-left: 25px;
+  font-size: 23px 
+}
+tr:first-child th{ border-bottom-width: 4px;}
+tr:last-child td:first-child { border-bottom-left-radius: 3px; }
+tr:last-child td:last-child { border-bottom-right-radius: 3px; }
+
+span {
+    content: "\0024";
+  }
+
+  .form-price ::before{
+      content
+  }

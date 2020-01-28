@@ -1,70 +1,78 @@
-body {
-    background-color: rgb(21, 122, 216);
+* {
     box-sizing: border-box;
+  }
+ 
+ body {
+    background-color:#3E94EC;
     font-family: 'Heebo', sans-serif;
-    font-weight: 100;
     color: #566573;
     width: 100%;
-    padding: 28px;
   }
 
-  table{
-      border: 2px #C0C0C0;
-      border-collapse: collapse;
-      border-style: hidden; 
-  }
-
-  table td{
-       border: 2px solid#C0C0C0;
-  }
-
-  table, th, td {
-    font-family: 'Heebo', sans-serif;
+  table {
+    border-collapse: collapse;
+    border-style: hidden; 
+    margin: 28px;
     text-align: left; 
-    color: #566573;
   }
 
   th {
     background-color: #17202A;
-    color: #EAEDED;
-    height: 95px;
     padding-left: 25px;
-    border-bottom-width: thick solid#C0C0C0;
-    font-size: 32px;
-    font-weight: normal;
-    border: 2px solid #778899;
+    border-bottom-width: thick solid#9EA7AF;
+    border: 2px solid #9EA7AF;
     border-top-left-radius: 3px;
     border-top-right-radius: 3px;
-    color: #ABB2B9;
+    font-size: 32px;
+    font-weight: normal; 
+    color: #D3DBE3;
   }
 
+  tr {
+    height: 83px;
+  }
+
+  tr th{
+    height: 98px;
+  }
+
+ td {
+    padding: 5px 25px;
+    border: 2px solid#9EA7AF;
+    font-size: 23px;
+ }
+
   tr:nth-child(even){
-      background-color: #EAEDED;
-      color: #566573;
+    background-color: #EAEDED;
   }
 
   tr:nth-child(odd){
     background-color: white;
-    color: #566573;
-}
+ }
 
-  td{
-  height: 70px;
-  padding: 5px 10px;
-  min-width: 375px;
-  max-width: 375px;
-  border-collapse: collapse;
-  padding-left: 25px;
-  font-size: 23px 
-}
-tr:first-child th{ border-bottom-width: 4px;}
-tr:last-child td:first-child { border-bottom-left-radius: 3px; }
-tr:last-child td:last-child { border-bottom-right-radius: 3px; }
+ tr:first-child th{ 
+    border-bottom-width: 4px;
+    min-width: 365px;
+    max-width: 365px;
+ }
 
-span {
-    content: "\0024";
-  }
+  tr th:last-child {
+    min-width: 432px;
+    max-width: 432px;
+ }
 
-  .form-price ::before{
-      content
-  }
+ tr:last-child td:first-child { 
+    border-bottom-left-radius: 3px; 
+ }
+
+ tr:last-child td:last-child { 
+    border-bottom-right-radius: 3px; 
+ }
+
+ .form-price::before{
+    content: "$";
+ }
+
+ .form-price::after{
+    content: '.00';  
+ }

@@ -78,7 +78,7 @@ public class Garage {
 //            amountOfFuel = car.fill(amountOfFuel);
 //        }
 //        return amountOfFuel;
-            List<Car> garage = new ArrayList<Car>();
+            List<Car> garage = new ArrayList<Car>(cars);
             for (Car car : cars) {
                 garage.add(car);
             }

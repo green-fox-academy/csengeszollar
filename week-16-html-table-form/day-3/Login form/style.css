@@ -58,6 +58,14 @@ input:focus {
     font-size: 24px;
 }
 
+#pwd__eye {
+    margin-left: -40px;
+    cursor: pointer;
+    overflow: visible; 
+    padding-top: 12px;
+}
+
+
 .forgot-password {
     text-align: right;
     margin-top: 20px;
@@ -84,5 +92,7 @@ button:focus {
 a { 
     text-decoration: none; 
 }
+
+
 
 

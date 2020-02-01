@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>LoginForm</title>
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&display=swap" rel="stylesheet">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="/Users/csengeszollar/Documents/greenfox/csengeszollar/week-16-html-table-form/day-4/Signup Form/5-2-raccoon-png-picture.png">
+</head>
+
+<body>
+    <div class="grid">
+        <div class="column1">
+            <h1>Sign up</h1>
+            <form action="https://newsletter-ws.herokuapp.com/register" method="POST">
+                <div class="input-text">
+                <label for="input-box"></label>
+            </div>
+            <div class="input-line">
+                <input id="input-box" type="text" placeholder="Username">
+            </div>
+            <div class="input-text">
+                <label for="email"></label>
+            </div>
+            <div class="input-line"> 
+                <input id="email" type="email" placeholder="E-mail">
+            </div>
+            <div class="input-text">
+                <label for="password"></label>
+            </div>
+            <div class="input-line"> 
+                <input id ="password" type="password" placeholder="Password">
+            </div>
+            <div class="input-text">
+                <label for="password"></label>
+            </div>
+            <div class="input-line"> 
+                <input id ="password" type="password" placeholder="Retype password">
+            </div>
+            <div><button type="submit">SIGN ME UP</button></div>
+            </form>
+        </div>
+        <div class="column2">
+            <div class="circle"> OR </div>
+        </div>
+        <div class="column3">
+            <form action="#" method="GET">
+            <div class="facebook-button">
+            <input id="facebook" type="button" onclick="window.location.href = 'https://www.facebook.com';" value="Log in with facebook"/>
+           </div> 
+           <div class="twitter-button">
+            <input id="twitter" type="button" onclick="window.location.href = 'https://www.twitter.com';" value="Log in with Twitter"/>
+           </div> 
+           <div class="google-button">
+            <input id="google" type="button" onclick="window.location.href = 'https://aboutme.google.com/';" value="Log in with Google+"/>
+           </div> 
+        </form>
+
+        </div>
+
+    </div>
+    
+</body>

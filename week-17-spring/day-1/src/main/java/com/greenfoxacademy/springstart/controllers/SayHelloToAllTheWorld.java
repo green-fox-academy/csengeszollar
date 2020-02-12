@@ -15,7 +15,7 @@ public class SayHelloToAllTheWorld {
             "Salve", "Ciao", "Kon-nichiwa", "An-nyong Ha-se-yo", "Salvëte", "Ni hao", "Dzien' dobry", "Olá", "Bunã ziua", "Zdravstvuyte", "Hola", "Jambo", "Hujambo", "Hej",
             "Sa-wat-dee", "Merhaba", "Selam", "Vitayu", "Xin chào", "Hylo", "Sut Mae", "Sholem Aleychem", "Sawubona"};
 
-    @RequestMapping("/helloWorld")
+    @RequestMapping("/hello-world")
     public String greeting(@RequestParam String color, @RequestParam Integer size, Model model) {
 
         model.addAttribute("color", color);

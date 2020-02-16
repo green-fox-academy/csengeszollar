@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bank Accounts</title>
+    <meta charset="utf-8" />
+</head>
+<body>
+<div>
+    <h1>Account</h1>
+        <p th:text="'Name: ' + ${account.name}"></p>
+    <p th:text="'Balance: ' + ${#numbers.formatDecimal(account.balance, 0, 2, 'POINT')} + ' zebra'"></p>
+    <p th:text="'Animal type: ' + ${account.animalType}"></p>
+
+</div>
+</body>
+</html>

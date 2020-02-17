@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Bank Accounts</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="utf-8" />
+</head>
+<body>
+<section class="form">
+<h1>Add a new account</h1>
+<form th:action="@{/add-account}" method="post">
+
+    <div>
+        <label for="name">Name:</label>
+        <input id="name" name="name" type="text">
+    </div>
+    <div>
+        <label for="balance">Balance:</label>
+        <input id="balance" name="balance" type="number">
+    </div>
+    <div>
+        <label for="type">Animal type:</label>
+        <input id="type" name="animalType" type="text">
+    </div>
+    <div>
+    <span class="form-title">Is he a King?</span>
+        <label for="yes">yes</label>
+        <input id="yes" type="radio" name="isKing" value="true">
+        <label id="no" for="no">no</label>
+        <input type="radio" name="isKing" value="false">
+    </div>
+    <div>
+        <span class="form-title">Is he a good guy?</span>
+        <label for="good">good</label>
+        <input id="good" type="radio" name="isGood" value="true">
+        <label id="bad" for="bad">bad</label>
+        <input type="radio" name="isGood" value="false">
+    </div>
+    <div>
+        <button type="submit">Create account</button>
+    </div>
+</form>
+</section>
+</body>
+</html>

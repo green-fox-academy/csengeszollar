@@ -3,3 +3,13 @@ table, th, td {
     border: 1px solid black;
     text-align: center;
 }
+
+.KING {
+    color: crimson;
+}
+
+body {
+    background-image: url("lionKingbackground.jpg");
+    background-repeat: no-repeat;
+
+}

@@ -9,11 +9,13 @@
 <h1>Accounts</h1>
 <table>
     <tr>
+        <th>Id</th>
         <th>Name</th>
         <th>Balance</th>
         <th>Animal type</th>
     </tr>
     <tr th:each="account : ${bankAccounts}" th:object="${account}">
+        <td th:text="${accountStat.count}"></td>
         <td th:text="*{name}"></td>
         <td th:text="*{#numbers.formatDecimal(balance, 0, 2, 'POINT')} + ' zebra'"></td>
         <td th:text="*{animalType}"></td>

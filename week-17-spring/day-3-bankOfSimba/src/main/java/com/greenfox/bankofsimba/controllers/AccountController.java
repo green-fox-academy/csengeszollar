@@ -46,7 +46,7 @@ public class AccountController {
 
 
     @PostMapping("account-raise")
-    public String raiseBalance(String nameSelected){
+    public String raiseBalance(String nameSelected) {
 
         for (int i = 0; i < bankAccounts.size(); i++) {
             if (bankAccounts.get(i).getName().equals(nameSelected)) {
@@ -56,19 +56,19 @@ public class AccountController {
                     bankAccounts.get(i).setBalance(bankAccounts.get(i).getBalance() + 10);
                 }
             }
-        } return "redirect:/show-all";
+        }
+        return "redirect:/show-all";
     }
 
     @GetMapping("/add-account")
-    public String addAccount(){
+    public String addAccount() {
         return "addAccount";
     }
 
     @PostMapping("/add-account")
-    public String submitAccount(@ModelAttribute BankAccount account){
+    public String submitAccount(@ModelAttribute BankAccount account) {
         bankAccounts.add(account);
         return "redirect:/show-all";
     }
-
-
 }
+

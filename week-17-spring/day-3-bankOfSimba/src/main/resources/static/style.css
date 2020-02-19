@@ -1,15 +1,98 @@
-table, th, td {
-    border-collapse: collapse;
-    border: 1px solid black;
-    text-align: center;
-}
-
-.KING {
-    color: crimson;
+.grid {
+    width: 750px;
+    height: 500px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 750px;
+    font-family: 'Walter Turncoat', cursive;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 body {
     background-image: url("lionKingbackground.jpg");
     background-repeat: no-repeat;
+    background-size: 100% auto;
+    font-family: 'Walter Turncoat', cursive;
+    padding-left: 34px;
+   }
 
+h1 {
+    text-align: center;
+   }
+h2 {
+    font-size: 32px;
 }
+
+table {
+    background-color: rgba(255,255,255, 0.5);
+    max-width: 750px;
+
+   }
+
+table, th, td {
+    border-collapse: collapse;
+    border: 1px solid black;
+    text-align: center;
+    }
+
+th, td {
+    padding: 7px;
+}
+
+.input-text {
+    font-size: 24px;
+}
+
+.input-box {
+    height: 50px;
+    width: 250px;
+}
+
+#name, #balance, #type {
+    height: 30px;
+    width: 250px;
+    font-size: 18px;
+    font-family: 'Walter Turncoat', cursive;
+    background-color: rgba(255,255,255, 0.5);
+}
+
+.create-button, .form-button, .add-button, #select-name {
+    margin-top: 22px;
+    height: 30px;
+    width: 250px;
+    font-size: 18px;
+    font-family: 'Walter Turncoat', cursive;
+    background-color: rgba(255,255,255, 0.5);
+    border-radius: 4px;
+}
+
+#select-name, .form-button, .add-button {
+    margin-left: 15px;
+}
+
+.create-button:focus, #select-name:focus, .form-button:focus, .add-button:focus {
+    outline: none;
+    border-color: crimson;
+}
+
+
+input:focus {
+    outline: none;
+    border-color: crimson;
+}
+
+.raiseForm {
+    text-align: left;
+    color: #deb07e;
+    font-size: 21px;
+    }
+
+.KING {
+    color: crimson;
+    }
+

@@ -2,10 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Bank Accounts</title>
-    <link rel="stylesheet" th:href="@{/style.css}" />
+    <link rel="stylesheet" th:href="@{/style.css}"  />
+    <link href="https://fonts.googleapis.com/css?family=Walter+Turncoat&display=swap" rel="stylesheet">
     <meta charset="utf-8" />
 </head>
 <body>
+<div class="grid">
 <h1>Bank of Simba</h1>
 <table>
     <tr>
@@ -27,15 +29,18 @@
 
 </table>
 <form th:action="@{/account-raise}" method="post">
-    <div>
-        <label for="select-name">Name:</label>
+    <div class="raiseForm">
+<!--        <label for="select-name">Raise balance</label>-->
         <select id="select-name" name="nameSelected">
             <option th:each="account : ${bankAccounts}" th:text="${account.name}"></option>
         </select>
-        <button type="submit">Raise</button>
+        <button class="form-button" type="submit">Raise balance</button>
     </div>
-
 </form>
-
+<!--&lt;!&ndash;<a href="add-account">Add new account</a>&ndash;&gt; //ha linkkent szeretnem megadni-->
+    <form action="/add-account" method="get">
+        <button class="add-button" type="submit">Add new account</button>
+    </form>
+</div>
 </body>
 </html>

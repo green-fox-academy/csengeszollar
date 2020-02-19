@@ -1,43 +1,50 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <title>Bank Accounts</title>
     <link rel="stylesheet" th:href="@{/style.css}" />
+    <link href="https://fonts.googleapis.com/css?family=Walter+Turncoat&display=swap" rel="stylesheet">
     <meta charset="utf-8" />
 </head>
 <body>
-<section class="form">
-<h1>Add a new account</h1>
+<section>
+<h2>Create new account</h2>
 <form th:action="@{/add-account}" method="post">
 
-    <div>
+    <div class="input-text">
         <label for="name">Name:</label>
+    </div>
+    <div class="input-box">
         <input id="name" name="name" type="text">
     </div>
-    <div>
+    <div class="input-text">
         <label for="balance">Balance:</label>
+</div>
+    <div class="input-box">
         <input id="balance" name="balance" type="number">
     </div>
-    <div>
+    <div class="input-text">
         <label for="type">Animal type:</label>
+</div>
+    <div class="input-box">
         <input id="type" name="animalType" type="text">
     </div>
     <div>
-    <span class="form-title">Is he a King?</span>
+    <h3 class="form-title">Is he a King?</h3>
         <label for="yes">yes</label>
         <input id="yes" type="radio" name="isKing" value="true">
         <label id="no" for="no">no</label>
         <input type="radio" name="isKing" value="false">
     </div>
     <div>
-        <span class="form-title">Is he a good guy?</span>
+        <h3 class="form-title">Is he a good guy?</h3>
         <label for="good">good</label>
         <input id="good" type="radio" name="isGood" value="true">
         <label id="bad" for="bad">bad</label>
         <input type="radio" name="isGood" value="false">
     </div>
     <div>
-        <button type="submit">Create account</button>
+        <button class="create-button" type="submit">Create account</button>
     </div>
 </form>
 </section>

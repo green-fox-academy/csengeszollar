@@ -1,6 +1,5 @@
-package com.grenfoxacademy.dependencies.services;
+package com.grenfoxacademy.dependencies.Colorprinter.services;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 public class GreenColor implements MyColor {
 

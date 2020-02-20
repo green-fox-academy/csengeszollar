@@ -1,4 +1,4 @@
-package com.grenfoxacademy.dependencies.services;
+package com.grenfoxacademy.dependencies.Colorprinter.services;
 
 
 import org.springframework.stereotype.Service;

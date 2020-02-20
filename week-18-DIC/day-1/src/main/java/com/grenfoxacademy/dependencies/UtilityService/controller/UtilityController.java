@@ -31,6 +31,7 @@ public class UtilityController {
     @GetMapping("/useful/email")
     public String validEmail(@RequestParam(name = "email", required = false) String email, Model model) {
         model.addAttribute("email", utilityService.validateEmail(email));
+        model.addAttribute("fontColor", utilityService.getFontColor());
         return "email-validation";
     }
 

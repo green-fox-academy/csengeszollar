@@ -10,6 +10,7 @@ public class UtilityService {
 
     ArrayList<String> colors;
     Random random;
+    private String fontColor;
 
 
     public UtilityService() {
@@ -29,11 +30,16 @@ public class UtilityService {
     public String validateEmail(String email) {
 
         if (email.contains(".") && email.contains("@")){
+            fontColor = "green";
             return email + " is a valid e-mail address";
         } else
+            fontColor = "red";
             return email + " is an invalid e-mail, please give me another one!";
     }
-    
+
+    public String getFontColor() {
+        return fontColor;
+    }
 
     public String caesar(String text, int number) {
         if (number < 0) {

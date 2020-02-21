@@ -29,17 +29,32 @@ public class UtilityController {
     }
 
     @GetMapping("/useful/email")
-    public String validEmail(@RequestParam(name = "mail", required = false) String email, Model model) {
+    public String validEmail(@RequestParam(name = "email", required = false) String email, Model model) {
         model.addAttribute("email", utilityService.validateEmail(email));
         model.addAttribute("fontColor", utilityService.getFontColor());
         return "email-validation";
     }
 
+    // public String validEmail(@RequestParam(name = "email", required = false) String email, Model model) {
+    // model.addAttribute("email", utilityService.validateEmail(email) ? "valid" : "not valid");
+//    model.addAttribute("color", utilityService.validateEmail(email) ? "green" : "red");
+//    utilityService.validateEmail("riel@gfa.hu");
+
+
     @GetMapping("/useful/encoder")
-    public String caesarEncoder(@RequestParam(name = "text", required = false) String text, Integer number, Model model) {
-        model.addAttribute("caesar", utilityService.caesar(text, number));
-        return "caesar-encoder";
+    public String caesarEncoder(@RequestParam(name = "text", required = false) String text, @RequestParam(name = "number", required = false) Integer number, Model model) {
+        model.addAttribute("caesar", utilityService.renderCaesar(text, number, true));
+        return "caesar";
     }
+
+    @GetMapping("/useful/decoder")
+    public String caesarDecoder(@RequestParam(name = "text", required = false) String text, @RequestParam(name = "number", required = false) Integer number, Model model) {
+        model.addAttribute("caesar", utilityService.renderCaesar(text, number, false));
+        return "caesar";
+    }
+
+
+
 
 
 

@@ -29,13 +29,20 @@ public class UtilityService {
 
     public String validateEmail(String email) {
 
-        if (email.contains(".") && email.contains("@")){
+        if (email == null) {
+            fontColor = "red";
+            return "Please type in a valid e-mail to the URL!";
+        }
+        if (email.contains(".") && email.contains("@")) {
             fontColor = "green";
             return email + " is a valid e-mail address";
         } else
             fontColor = "red";
-            return email + " is an invalid e-mail, please give me another one!";
+        return email + " is an invalid e-mail, please give me another one!";
     }
+
+//    szebb: public boolean isValid(String email) {
+//    return email.contains(".") && email.contains("@"); (ehhez nem kell fontColor fieldet letrehozni)
 
     public String getFontColor() {
         return fontColor;
@@ -53,4 +60,17 @@ public class UtilityService {
         }
         return result;
     }
+
+    public String renderCaesar(String text, Integer number, boolean encode) {
+        if ((text == null) || (number == null)) {
+            return "Please give me a text and a number in the URL!";
+        } else {
+            if (!encode) {
+                return caesar(text, -number);
+            } else {
+                return caesar(text, number);
+            }
+        }
+    }
+
 }

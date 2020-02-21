@@ -29,11 +29,19 @@ public class UtilityController {
     }
 
     @GetMapping("/useful/email")
-    public String validEmail(@RequestParam(name = "email", required = false) String email, Model model) {
+    public String validEmail(@RequestParam(name = "mail", required = false) String email, Model model) {
         model.addAttribute("email", utilityService.validateEmail(email));
         model.addAttribute("fontColor", utilityService.getFontColor());
         return "email-validation";
     }
+
+    @GetMapping("/useful/encoder")
+    public String caesarEncoder(@RequestParam(name = "text", required = false) String text, Integer number, Model model) {
+        model.addAttribute("caesar", utilityService.caesar(text, number));
+        return "caesar-encoder";
+    }
+
+
 
 
 }

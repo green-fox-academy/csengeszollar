@@ -14,9 +14,14 @@
 <img src="greenfox.png" alt="can not find fox">
 </div>
 <div class="characteristic">
-    This is Mr. Fox. Currently living on pizza and lemonade. He knows 2 tricks.
+   <p th:text="'This is ' + ${name} + '. Currently living on ' + ${food} + ' and ' + ${drink} + '. (S)he knows 2 tricks.'"></p>
 </div>
 <h1>Known tricks</h1>
+<p th:if="${tricks.isEmpty()}">You know no tricks yet. Go learn some</p>
+    <ul th:if="${tricks}== null"></ul>
+    <li th:unless=""
+
+</p>
 <ul>
     <li> write HTML</li>
     <li> code in Java</li>

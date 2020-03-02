@@ -1,17 +1,26 @@
 package com.greenfoxcademy.listing_todos.models;
 
+import com.sun.javafx.geom.transform.Identity;
+
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Todo {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String title;
     private boolean isUrgent;
     private boolean isDone;
 
     public Todo() {
+    }
+
+    public Todo(String title){
+        this.title = title;
     }
 
     public long getId() {
@@ -30,19 +39,19 @@ public class Todo {
         this.title = title;
     }
 
-    public boolean isUrgent() {
+    public boolean getIsUrgent() {
         return isUrgent;
     }
 
-    public void setUrgent(boolean urgent) {
+    public void setIsUrgent(boolean urgent) {
         isUrgent = urgent;
     }
 
-    public boolean isDone() {
+    public boolean getIsDone() {
         return isDone;
     }
 
-    public void setDone(boolean done) {
+    public void setIsDone(boolean done) {
         isDone = done;
     }
 }

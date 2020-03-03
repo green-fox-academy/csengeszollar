@@ -23,6 +23,11 @@ public class MysqlProjectApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        todoRepository.save(new Todo("I have to learn Object Relational Mapping"));
+        todoRepository.save(new Todo("daily task",false,false));
+        todoRepository.save(new Todo("make beds", true, true));
+        todoRepository.save(new Todo("do the washing up", false, true));
+        todoRepository.save(new Todo("clean the bathroom and the kitchen", true, true));
+        todoRepository.save(new Todo("wipe all the surfaces with a cloth", false, true));
+        todoRepository.save(new Todo("vacuum the carpet", false, false));
     }
 }

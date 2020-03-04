@@ -26,4 +26,8 @@ public class TodoService {
     public Iterable<Todo> findAllByIsNotDone() {
         return todoRepository.findAllByIsDone(false);
     }
+
+    public void addTodo(String todo) {
+        todoRepository.save(new Todo(todo));
+    }
 }

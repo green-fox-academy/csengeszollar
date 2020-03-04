@@ -1,6 +1,5 @@
 package com.greenfoxacademy.mysql_project.controller;
 
-import com.greenfoxacademy.mysql_project.repository.TodoRepository;
 import com.greenfoxacademy.mysql_project.services.TodoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -40,4 +39,10 @@ public class TodoController {
         todoService.addTodo(todo);
        return "redirect:/todo/list";
     }
+
+   @GetMapping("/{id}/delete")
+        public String deleteTodo(@PathVariable(name="id") Long id){
+        todoService.deleteTodo(id);
+        return "redirect:/todo/list";
+        }
 }

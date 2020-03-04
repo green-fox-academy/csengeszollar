@@ -1,6 +1,7 @@
 package com.greenfoxacademy.mysql_project.controller;
 
 import com.greenfoxacademy.mysql_project.repository.TodoRepository;
+import com.greenfoxacademy.mysql_project.services.TodoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,18 +13,22 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("/todo")
 public class TodoController {
 
-    TodoRepository todoRepository;
+    TodoService todoService;
 
-    public TodoController(TodoRepository todoRepository) {
-        this.todoRepository = todoRepository;
+    public TodoController(TodoService todoService) {
+        this.todoService = todoService;
     }
 
     @GetMapping(value = {"/", "/list"})
-    public String list(Model model, @RequestParam(value = "isActive", required = false) String isActive) {
+    public String list(Model model, @RequestParam(required = false) String isActive) {
         if (isActive == null) {
-            model.addAttribute("todos", todoRepository.findAll());
+            model.addAttribute("todos", todoService.findAll());
+        } else if (isActive.toLowerCase().equals("true")) {
+            model.addAttribute("todos", todoService.findAllByIsNotDone());
+        } else if (isActive.toLowerCase().equals("false")) {
+            model.addAttribute("todos", todoService.findAllByIsDone());
         } else {
-            model.addAttribute("todos", todoRepository.findAllByIsDone(isActive.equals("false")));
+            model.addAttribute("error", "Please write a valid query.");
         }
         return "todolist";
     }

@@ -7,7 +7,13 @@
 </head>
 <body>
 <h1>Todos for today:</h1>
-<div class="link">
+<div>
+<form action="#" th:action="@{'/todo/'}" th:method="get">
+    <input th:name="searchInput" type="text">
+    <input type="submit" value="Search">
+</form>
+</div>
+<div>
     <a href="/todo/add">Add new todo</a>
 </div>
 <table>

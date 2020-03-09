@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -50,5 +51,9 @@ public class TodoService {
 
     public void saveTodo(Todo todo){
         todoRepository.save(todo);
+    }
+
+    public Iterable<Todo> search(String searchInput){
+        return todoRepository.findAllByTitleContains(searchInput);
     }
 }

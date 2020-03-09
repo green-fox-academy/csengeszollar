@@ -17,9 +17,14 @@ public class TodoController {
     }
 
     @GetMapping(value = {"/", "/list"})
-    public String list(Model model, @RequestParam(required = false) String isActive) {
+    public String list(Model model, @RequestParam(required = false) String isActive, @RequestParam (required = false) String searchInput) {
         if (isActive == null) {
-            model.addAttribute("todos", todoService.findAll());
+            if (searchInput!= null) {
+                model.addAttribute("todos", todoService.search(searchInput));
+            } else{
+                model.addAttribute("todos", todoService.findAll());
+            }
+
         } else if (isActive.toLowerCase().equals("true")) {
             model.addAttribute("todos", todoService.findAllByIsNotDone());
         } else if (isActive.toLowerCase().equals("false")) {

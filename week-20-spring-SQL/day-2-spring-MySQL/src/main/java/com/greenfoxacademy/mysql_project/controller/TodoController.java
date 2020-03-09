@@ -1,5 +1,6 @@
 package com.greenfoxacademy.mysql_project.controller;
 
+import com.greenfoxacademy.mysql_project.models.Todo;
 import com.greenfoxacademy.mysql_project.services.TodoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,19 +31,32 @@ public class TodoController {
     }
 
     @GetMapping("/add")
-    public String renderAdd(){
+    public String renderAdd() {
         return "add";
     }
 
     @PostMapping("/save")
     public String saveNewTodo(@ModelAttribute(name = "title") String todo) {
         todoService.addTodo(todo);
-       return "redirect:/todo/list";
+        return "redirect:/todo/list";
     }
 
-   @GetMapping("/{id}/delete")
-        public String deleteTodo(@PathVariable(name="id") Long id){
+    @GetMapping("/{id}/delete")
+    public String deleteTodo(@PathVariable(name = "id") Long id) {
         todoService.deleteTodo(id);
         return "redirect:/todo/list";
-        }
+    }
+
+    @GetMapping("/{id}/edit")
+    public String renderEdit(@PathVariable(name = "id") Long id, Model model) {
+       model.addAttribute("id", id);
+       model.addAttribute("todo", todoService.findTodoById(id));
+        return "edit";
+    }
+
+    @PostMapping("/{id}/edit")
+    public String saveEditedTodo(@ModelAttribute Todo todo){
+        todoService.saveTodo(todo);
+       return "redirect:/todo/list";
+    }
 }

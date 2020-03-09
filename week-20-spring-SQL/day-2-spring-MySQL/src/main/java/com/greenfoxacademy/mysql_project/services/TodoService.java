@@ -5,6 +5,9 @@ import com.greenfoxacademy.mysql_project.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+import java.util.Optional;
+
 @Service
 public class TodoService {
 
@@ -33,5 +36,19 @@ public class TodoService {
 
     public void deleteTodo(long id) {
         todoRepository.deleteById(id);
+    }
+
+    public Todo findTodoById (long id) {
+        Optional<Todo> optional = todoRepository.findById(id);
+
+        if(optional.isPresent()){
+            return optional.get();
+        } else {
+            return null;
+        }
+    }
+
+    public void saveTodo(Todo todo){
+        todoRepository.save(todo);
     }
 }

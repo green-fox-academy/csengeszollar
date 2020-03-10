@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/todo")
 public class TodoController {
 
-    TodoService todoService;
+   private TodoService todoService;
 
     public TodoController(TodoService todoService) {
         this.todoService = todoService;
@@ -19,7 +19,7 @@ public class TodoController {
     @GetMapping(value = {"/", "/list"})
     public String list(Model model, @RequestParam(required = false) String isActive, @RequestParam (required = false) String searchInput) {
         if (isActive == null) {
-            if (searchInput!= null) {
+            if (searchInput != null) {
                 model.addAttribute("todos", todoService.search(searchInput));
             } else{
                 model.addAttribute("todos", todoService.findAll());

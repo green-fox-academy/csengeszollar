@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit assignee</title>
+</head>
+<body>
+<form action="#" th:action="@{'/assignee/' + ${email} + '/edit'}" th:method="post">
+    <div class="input-text">
+        <label for="name">Edit assignee's name</label>
+    </div>
+    <div class="input-box">
+        <input id="name" type="text" th:value="${assignee.name}">
+    </div>
+    <div>
+        <button class="submit-button" type="submit">Submit</button>
+        <span class="link"> <a href="/todo/list">Cancel</a> </span>
+    </div>
+</form>
+
+</body>
+</html>

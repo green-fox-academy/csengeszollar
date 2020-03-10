@@ -1,6 +1,8 @@
 package com.greenfoxacademy.mysql_project;
 
+import com.greenfoxacademy.mysql_project.models.Assignee;
 import com.greenfoxacademy.mysql_project.models.Todo;
+import com.greenfoxacademy.mysql_project.repository.AssigneeRepository;
 import com.greenfoxacademy.mysql_project.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -11,10 +13,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MysqlProjectApplication implements CommandLineRunner {
 
     private TodoRepository todoRepository;
+    private AssigneeRepository assigneeRepository;
 
     @Autowired
-    MysqlProjectApplication(TodoRepository todoRepository) {
+    MysqlProjectApplication(TodoRepository todoRepository, AssigneeRepository assigneeRepository) {
         this.todoRepository = todoRepository;
+        this.assigneeRepository = assigneeRepository;
     }
 
     public static void main(String[] args) {
@@ -29,5 +33,6 @@ public class MysqlProjectApplication implements CommandLineRunner {
         todoRepository.save(new Todo("clean the bathroom and the kitchen", true, true));
         todoRepository.save(new Todo("wipe all the surfaces with a cloth", false, true));
         todoRepository.save(new Todo("vacuum the carpet", false, false));
+        assigneeRepository.save(new Assignee("Joci", "joci@joamoci.hu"));
     }
 }

@@ -16,7 +16,7 @@
     </tr>
     <tr th:each="assignee : ${assignees}" th:object="${assignee}">
         <td>
-            <a th:href="'assignee/' + *{email} + '/todos'" th:text="*{name}"></a>
+            <a th:href="'/assignee/' + *{email} + '/todos'" th:text="*{name}"></a>
         </td>
         <td th:text="*{email}"></td>
         <td>

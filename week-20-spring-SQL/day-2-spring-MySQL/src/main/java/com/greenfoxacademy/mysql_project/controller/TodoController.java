@@ -1,6 +1,7 @@
 package com.greenfoxacademy.mysql_project.controller;
 
 import com.greenfoxacademy.mysql_project.models.Todo;
+import com.greenfoxacademy.mysql_project.services.AssigneeService;
 import com.greenfoxacademy.mysql_project.services.TodoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,9 +12,11 @@ import org.springframework.web.bind.annotation.*;
 public class TodoController {
 
    private TodoService todoService;
+   private AssigneeService assigneeService;
 
-    public TodoController(TodoService todoService) {
+    public TodoController(TodoService todoService, AssigneeService assigneeService) {
         this.todoService = todoService;
+        this.assigneeService = assigneeService;
     }
 
     @GetMapping(value = {"/", "/list"})

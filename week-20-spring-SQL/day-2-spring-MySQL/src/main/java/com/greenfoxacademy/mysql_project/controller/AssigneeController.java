@@ -55,7 +55,7 @@ public class AssigneeController {
         return "redirect:/assignee";
     }
 
-    @GetMapping("assignee/{email}/todos")
+    @GetMapping("/assignee/{email}/todos")
     public String listAssignedTodos(Model model,@PathVariable(name = "email", required = false) String email) {
         model.addAttribute("todos", assigneeService.getAssignedTodos(email));
         model.addAttribute("assignee", assigneeService.findAssigneeById(email));

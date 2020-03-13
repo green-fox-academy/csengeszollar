@@ -22,6 +22,9 @@
         <label for="done">Done</label>
         <input id="done" type="checkbox" th:checked="${todo.getIsDone()}" th:field="${todo.isDone}">
     </div>
+    <select th:field="${todo.assignee}" id="select-name" >
+        <option th:each="todo : ${todos}" th:text="${todo.assignee.getName()}" th:value="${todo.assignee.getEmail()}"></option>
+    </select>
     <div>
         <button class="submit-button" type="submit">Submit</button>
         <span class="link"> <a href="/todo/list">Cancel</a> </span>

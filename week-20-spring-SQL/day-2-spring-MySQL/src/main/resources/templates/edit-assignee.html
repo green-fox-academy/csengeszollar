@@ -10,11 +10,11 @@
         <label for="name">Edit assignee's name</label>
     </div>
     <div class="input-box">
-        <input id="name" type="text" th:value="${assignee.name}">
+        <input id="name" type="text" th:field="${assignee.name}">
     </div>
     <div>
         <button class="submit-button" type="submit">Submit</button>
-        <span class="link"> <a href="/todo/list">Cancel</a> </span>
+        <span class="link"> <a href="/assignee">Cancel</a> </span>
     </div>
 </form>
 

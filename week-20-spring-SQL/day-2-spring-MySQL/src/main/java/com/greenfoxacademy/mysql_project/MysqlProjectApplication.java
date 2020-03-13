@@ -27,12 +27,23 @@ public class MysqlProjectApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        todoRepository.save(new Todo("daily task",false,false));
-        todoRepository.save(new Todo("make beds", true, true));
-        todoRepository.save(new Todo("do the washing up", false, true));
-        todoRepository.save(new Todo("clean the bathroom and the kitchen", true, true));
-        todoRepository.save(new Todo("wipe all the surfaces with a cloth", false, true));
-        todoRepository.save(new Todo("vacuum the carpet", false, false));
-        assigneeRepository.save(new Assignee("Joci", "joci@joamoci.hu"));
+        Assignee joci = assigneeRepository.save(new Assignee("Joci", "joci@joamoci.hu"));
+        Assignee pisti = new Assignee("Pityu", "pityesz@gmail.com");
+        Assignee klari = new Assignee("Klari", "klari@gmail.com");
+        Assignee mari = new Assignee("Mari", "mari@gmail.com");
+        Assignee agi = new Assignee("Agi", "agi@gmail.com");
+
+        assigneeRepository.save(pisti);
+        assigneeRepository.save(klari);
+        assigneeRepository.save(mari);
+        assigneeRepository.save(agi);
+
+        todoRepository.save(new Todo("daily task",false,false, joci));
+        todoRepository.save(new Todo("make beds", true, true, pisti));
+        todoRepository.save(new Todo("do the washing up", false, true, klari));
+        todoRepository.save(new Todo("clean the bathroom and the kitchen", true, true, mari));
+        todoRepository.save(new Todo("wipe all the surfaces with a cloth", false, true, agi));
+        todoRepository.save(new Todo("vacuum the carpet", false, false, joci));
+
     }
 }

@@ -56,6 +56,7 @@ public class TodoController {
     public String renderEdit(@PathVariable(name = "id") Long id, Model model) {
        model.addAttribute("id", id);
        model.addAttribute("todo", todoService.findTodoById(id));
+       model.addAttribute("todos", todoService.findAll());
         return "edit";
     }
 

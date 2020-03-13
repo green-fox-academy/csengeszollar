@@ -34,4 +34,12 @@ public class AssigneeService {
         }
     }
 
+    public void saveAssignee(Assignee assignee){
+        assigneeRepository.save(assignee);
+    }
+
+//    public void addAssignee(String name, String email){
+//        assigneeRepository.save(new Assignee(name, email));
+//    }
+
 }

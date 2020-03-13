@@ -1,9 +1,8 @@
 package com.greenfoxacademy.mysql_project.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
+import javax.persistence.*;
 
 @Entity
 public class Todo {
@@ -13,6 +12,8 @@ public class Todo {
     private String title;
     private boolean isUrgent;
     private boolean isDone;
+    @ManyToOne
+    private Assignee assignee;
 
     public Todo() {
     }
@@ -21,6 +22,13 @@ public class Todo {
         this.title = title;
         this.isUrgent = isUrgent;
         this.isDone = isDone;
+    }
+
+    public Todo(String title, boolean isUrgent, boolean isDone, Assignee assignee) {
+        this.title = title;
+        this.isUrgent = isUrgent;
+        this.isDone = isDone;
+        this.assignee = assignee;
     }
 
     public Todo(String title){
@@ -57,6 +65,14 @@ public class Todo {
 
     public void setIsDone(boolean done) {
         isDone = done;
+    }
+
+    public Assignee getAssignee() {
+        return assignee;
+    }
+
+    public void setAssignee(Assignee assignee) {
+        this.assignee = assignee;
     }
 }
 

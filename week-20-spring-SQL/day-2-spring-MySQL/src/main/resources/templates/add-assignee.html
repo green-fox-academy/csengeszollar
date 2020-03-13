@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add assignee</title>
+</head>
+<body>
+<h1>Add new assignee</h1>
+<div>
+    <form action="/assignee/save" method="post">
+        <div>
+            <label for="name">Name:</label>
+        </div>
+        <div class="input">
+            <input name="name" id="name" type="text">
+        </div>
+        <div>
+            <label for="email">E-mail</label>
+        </div>
+        <div class="input">
+            <input name="email" id="email" type="text">
+        </div>
+
+        <div>
+            <button class="submit-button" type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+
+</body>

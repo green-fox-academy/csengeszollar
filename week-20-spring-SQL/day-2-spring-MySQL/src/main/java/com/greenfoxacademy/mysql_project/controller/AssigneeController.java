@@ -1,10 +1,14 @@
 package com.greenfoxacademy.mysql_project.controller;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.greenfoxacademy.mysql_project.models.Assignee;
 import com.greenfoxacademy.mysql_project.services.AssigneeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class AssigneeController {
@@ -32,5 +36,22 @@ public class AssigneeController {
         model.addAttribute("email", email);
         model.addAttribute("assignee", assigneeService.findAssigneeById(email));
         return "edit-assignee";
+    }
+
+    @PostMapping("/assignee/{email}/edit")
+    public String saveEditedAssignee(@ModelAttribute Assignee assignee){
+        assigneeService.saveAssignee(assignee);
+        return "redirect:/assignee";
+    }
+
+    @GetMapping("/assignee/add")
+    public String addAssignee(){
+        return "add-assignee";
+    }
+
+    @PostMapping("/assignee/save")
+    public String saveAssignee(@ModelAttribute Assignee assignee) {
+        assigneeService.saveAssignee(assignee);
+        return "redirect:/assignee";
     }
 }

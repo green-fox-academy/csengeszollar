@@ -50,4 +50,12 @@ public class Assignee {
     public String toString(){
         return name;
     }
+
+    public List<Todo> getTodos() {
+        return todos;
+    }
+
+    public void setTodos(List<Todo> todos) {
+        this.todos = todos;
+    }
 }

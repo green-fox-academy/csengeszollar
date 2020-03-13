@@ -1,10 +1,12 @@
 package com.greenfoxacademy.mysql_project.services;
 
 import com.greenfoxacademy.mysql_project.models.Assignee;
+import com.greenfoxacademy.mysql_project.models.Todo;
 import com.greenfoxacademy.mysql_project.repository.AssigneeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -41,5 +43,9 @@ public class AssigneeService {
 //    public void addAssignee(String name, String email){
 //        assigneeRepository.save(new Assignee(name, email));
 //    }
+
+    public List<Todo> getAssignedTodos(String email) {
+        return findAssigneeById(email).getTodos();
+    }
 
 }

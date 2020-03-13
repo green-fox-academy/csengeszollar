@@ -15,7 +15,9 @@
         <th>E-mail</th>
     </tr>
     <tr th:each="assignee : ${assignees}" th:object="${assignee}">
-        <td th:text="*{name}"></td>
+        <td>
+            <a th:href="'assignee/' + *{email} + '/todos'" th:text="*{name}"></a>
+        </td>
         <td th:text="*{email}"></td>
         <td>
             <a th:href="'/assignee/' + *{email} + '/delete'">delete</a>

@@ -23,7 +23,7 @@
         <input id="done" type="checkbox" th:checked="${todo.getIsDone()}" th:field="${todo.isDone}">
     </div>
     <select th:field="${todo.assignee}" id="select-name" >
-        <option th:each="todo : ${todos}" th:text="${todo.assignee.getName()}" th:value="${todo.assignee.getEmail()}"></option>
+        <option th:each="assignee : ${assignees}" th:text="${assignee.getName()}" th:value="${assignee.getEmail()}"></option>
     </select>
     <div>
         <button class="submit-button" type="submit">Submit</button>

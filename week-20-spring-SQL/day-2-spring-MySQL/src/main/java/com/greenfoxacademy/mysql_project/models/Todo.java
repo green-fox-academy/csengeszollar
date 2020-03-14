@@ -74,5 +74,21 @@ public class Todo {
     public void setAssignee(Assignee assignee) {
         this.assignee = assignee;
     }
+
+    public String getAssigneeName() {
+        if (assignee == null) {
+            return "";
+        } else {
+            return assignee.getName();
+        }
+    }
+
+    public String getAssigneeEmail() {
+        if (assignee == null){
+            return "";
+        } else {
+            return assignee.getEmail();
+        }
+    }
 }
 

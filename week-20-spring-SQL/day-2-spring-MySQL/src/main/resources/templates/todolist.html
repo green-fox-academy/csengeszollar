@@ -9,8 +9,16 @@
 <h1>Todos for today:</h1>
 <div>
 <form action="/todo/" method="get">
-    <input name="searchInput" type="text">
-    <input type="submit" value="Search">
+    <label for="search">Search by:</label>
+    <select name="key">
+        <option value="null"> - </option>
+        <option value="title">title</option>
+        <option value="assigneeName">assignee</option>
+        <option value="creationDate">creation date</option>
+        <option value="dueDate">due date</option>
+    </select>
+    <input type="search" id="search" name="field">
+    <input type="submit" value="search">
 </form>
 </div>
 <div class="link">

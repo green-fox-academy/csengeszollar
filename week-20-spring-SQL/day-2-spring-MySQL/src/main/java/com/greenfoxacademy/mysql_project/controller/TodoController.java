@@ -23,10 +23,10 @@ public class TodoController {
     }
 
     @GetMapping(value = {"/", "/list"})
-    public String list(Model model, @RequestParam(required = false) String isActive, @RequestParam (required = false) String searchInput) {
+    public String list(Model model, @RequestParam(required = false) String isActive, @RequestParam (required = false) String key,@RequestParam (required = false) String field) {
         if (isActive == null) {
-            if (searchInput != null) {
-                model.addAttribute("todos", todoService.search(searchInput));
+            if (key != null && field != null) {
+                model.addAttribute("todos", todoService.search(key, field));
             } else{
                 model.addAttribute("todos", todoService.findAll());
             }

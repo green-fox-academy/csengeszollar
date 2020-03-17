@@ -1,11 +1,9 @@
 package com.greenfoxacademy.mysql_project.models;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 public class Todo {
@@ -18,20 +16,22 @@ public class Todo {
     @ManyToOne
     private Assignee assignee;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date dateOfCreation;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dateOfCreation;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate dueDate;
 
-    private Date dueDate;
 
     public Todo() {
-        dateOfCreation = new Date();
+        dateOfCreation = LocalDate.now();
+
     }
 
     public Todo(String title, boolean isUrgent, boolean isDone) {
         this.title = title;
         this.isUrgent = isUrgent;
         this.isDone = isDone;
-        dateOfCreation = new Date();
+        dateOfCreation = LocalDate.now();
     }
 
     public Todo(String title, boolean isUrgent, boolean isDone, Assignee assignee) {
@@ -39,22 +39,24 @@ public class Todo {
         this.isUrgent = isUrgent;
         this.isDone = isDone;
         this.assignee = assignee;
-        dateOfCreation = new Date();
+        dateOfCreation = LocalDate.now();
     }
 
-    public Todo(String title, boolean isUrgent, boolean isDone, Assignee assignee, Date dueDate) {
+    public Todo(String title, boolean isUrgent, boolean isDone, Assignee assignee, LocalDate dueDate) {
         this.title = title;
         this.isUrgent = isUrgent;
         this.isDone = isDone;
         this.assignee = assignee;
-        dateOfCreation = new Date();
+        dateOfCreation = LocalDate.now();
         this.dueDate = dueDate;
     }
 
-    public Todo(String title){
+    public Todo(String title, LocalDate dueDate){
         this.title = title;
-        dateOfCreation = new Date();
+        dateOfCreation = LocalDate.now();
+        this.dueDate = dueDate;
     }
+
 
     public long getId() {
         return id;
@@ -112,20 +114,19 @@ public class Todo {
         }
     }
 
-    public Date getDateOfCreation() {
+    public LocalDate getDateOfCreation() {
         return dateOfCreation;
     }
 
-    public void setDateOfCreation(Date dateOfCreation) {
+    public void setDateOfCreation(LocalDate dateOfCreation) {
         this.dateOfCreation = dateOfCreation;
     }
 
-    public Date getDueDate() {
+    public LocalDate getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(Date dueDate) {
+    public void setDueDate(LocalDate dueDate) {
         this.dueDate = dueDate;
     }
 }
-

@@ -5,8 +5,7 @@ import com.greenfoxacademy.mysql_project.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
-import java.util.List;
+import java.time.LocalDate;
 import java.util.Optional;
 
 @Service
@@ -31,8 +30,8 @@ public class TodoService {
         return todoRepository.findAllByIsDone(false);
     }
 
-    public void addTodo(String todo) {
-        todoRepository.save(new Todo(todo));
+    public void addTodo(String todo, LocalDate dueDate) {
+        todoRepository.save(new Todo(todo,dueDate));
     }
 
     public void deleteTodo(long id) {

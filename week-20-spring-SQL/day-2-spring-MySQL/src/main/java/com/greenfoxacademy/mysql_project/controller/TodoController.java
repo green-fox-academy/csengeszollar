@@ -3,9 +3,12 @@ package com.greenfoxacademy.mysql_project.controller;
 import com.greenfoxacademy.mysql_project.models.Todo;
 import com.greenfoxacademy.mysql_project.services.AssigneeService;
 import com.greenfoxacademy.mysql_project.services.TodoService;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 @Controller
 @RequestMapping("/todo")
@@ -44,8 +47,10 @@ public class TodoController {
     }
 
     @PostMapping("/save")
-    public String saveNewTodo(@ModelAttribute(name = "title") String todo) {
-        todoService.addTodo(todo);
+    public String saveNewTodo(String title, String dueDate) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate inputDate = LocalDate.parse(dueDate, formatter);
+        todoService.addTodo(title, inputDate);
         return "redirect:/todo/list";
     }
 

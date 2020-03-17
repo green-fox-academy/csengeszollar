@@ -9,6 +9,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.TimeZone;
+
 @SpringBootApplication
 public class MysqlProjectApplication implements CommandLineRunner {
 
@@ -27,6 +29,7 @@ public class MysqlProjectApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        TimeZone.setDefault(TimeZone.getTimeZone("UTC"));
         Assignee joci = assigneeRepository.save(new Assignee("Joci", "joci@joamoci.hu"));
         Assignee pisti = new Assignee("Pityu", "pityesz@gmail.com");
         Assignee klari = new Assignee("Klari", "klari@gmail.com");

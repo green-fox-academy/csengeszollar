@@ -24,7 +24,6 @@ public class Todo {
 
     public Todo() {
         dateOfCreation = LocalDate.now();
-
     }
 
     public Todo(String title, boolean isUrgent, boolean isDone) {

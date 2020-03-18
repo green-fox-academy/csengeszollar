@@ -25,6 +25,11 @@ public class TodoService {
         return todoRepository.findAll();
     }
 
+//    public Iterable<Todo> findAllByDone(String isActive) {
+//        return todoRepository.findAllByIsDone(!Boolean.parseBoolean(isActive));
+//    }
+
+
     public Iterable<Todo> findAllByIsDone() {
         return todoRepository.findAllByIsDone(true);
     }
@@ -58,14 +63,14 @@ public class TodoService {
         todoRepository.save(todo);
     }
 
-    public Iterable<Todo> searchTitle(String searchInput){
-        return todoRepository.findAllByTitleContains(searchInput);
-    }
+//    public Iterable<Todo> searchTitle(String searchInput){
+//        return todoRepository.findAllByTitleContains(searchInput);
+//    }
 
     public Iterable<Todo> search(String key, String field){
         switch (key) {
             case "title":
-                return todoRepository.findAllByTitleContains(field);
+                return todoRepository.findAllByTitleContains( field);
 
             case "assigneeName":
                 return todoRepository.findAllByAssignee(assigneeRepository.findAssigneeByNameContains(field));

@@ -5,7 +5,7 @@
     <title>Edit assignee</title>
 </head>
 <body>
-<form action="#" th:action="@{'/assignee/' + ${email} + '/edit'}" th:method="post">
+<form action="#" th:action="@{'/assignee/' + ${assignee.email} + '/edit'}" th:method="post">
     <div class="input-text">
         <label for="name">Edit assignee's name</label>
     </div>
@@ -14,9 +14,8 @@
     </div>
     <div>
         <button class="submit-button" type="submit">Submit</button>
-        <span class="link"> <a href="/assignee">Cancel</a> </span>
+        <span class="link"> <a href="/assignee/">Cancel</a> </span>
     </div>
 </form>
-
 </body>
 </html>

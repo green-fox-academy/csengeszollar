@@ -5,11 +5,8 @@ import com.greenfoxacademy.mysql_project.repository.AssigneeRepository;
 import com.greenfoxacademy.mysql_project.repository.TodoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -36,8 +33,10 @@ public class TodoService {
         return todoRepository.findAllByIsDone(false);
     }
 
-    public void addTodo(String todo, LocalDate dueDate) {
-        todoRepository.save(new Todo(todo,dueDate));
+    public void addTodo(String todo, String dueDate) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate inputDate = LocalDate.parse(dueDate, formatter);
+        todoRepository.save(new Todo(todo, inputDate));
     }
 
     public void deleteTodo(long id) {
@@ -55,6 +54,7 @@ public class TodoService {
     }
 
     public void saveTodo(Todo todo){
+
         todoRepository.save(todo);
     }
 
@@ -78,12 +78,11 @@ public class TodoService {
 
             default:
                 return null;
-
         }
     }
 
     public Iterable<Todo> searchByCreationDate(String field) {
-        List<Todo> filteredTodos = new ArrayList<>();
+//        List<Todo> filteredTodos = new ArrayList<>();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate creationDate = LocalDate.parse(field, formatter);
 //        for (Todo todo: findAll()){
@@ -98,18 +97,8 @@ public class TodoService {
     }
 
     public Iterable<Todo> searchByDueDate(String field) {
-        List<Todo> filteredTodos = new ArrayList<>();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate dueDate = LocalDate.parse(field, formatter);
-
-//        for (Todo todo: findAll()){
-//            if (todo.getDueDate() !=null) {
-//                if (todo.getDueDate().compareTo(dueDate) == 0) {
-//                    filteredTodos.add(todo);
-//                }
-//            }
-//        }
         return todoRepository.findAllByDueDate(dueDate);
-//        return filteredTodos;
     }
 }

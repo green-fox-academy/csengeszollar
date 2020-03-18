@@ -7,8 +7,6 @@ import com.greenfoxacademy.mysql_project.services.TodoService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 @Controller
 @RequestMapping("/todo")
@@ -23,14 +21,13 @@ public class TodoController {
     }
 
     @GetMapping(value = {"/", "/list"})
-    public String list(Model model, @RequestParam(required = false) String isActive, @RequestParam (required = false) String key,@RequestParam (required = false) String field) {
+    public String list(Model model, @RequestParam(required = false) String isActive, @RequestParam (required = false) String searchedField,@RequestParam (required = false) String searchInput) {
         if (isActive == null) {
-            if (key != null && field != null) {
-                model.addAttribute("todos", todoService.search(key, field));
+            if (searchedField != null && searchInput != null) {
+                model.addAttribute("todos", todoService.search(searchedField, searchInput));
             } else{
                 model.addAttribute("todos", todoService.findAll());
             }
-
         } else if (isActive.toLowerCase().equals("true")) {
             model.addAttribute("todos", todoService.findAllByIsNotDone());
         } else if (isActive.toLowerCase().equals("false")) {
@@ -48,9 +45,7 @@ public class TodoController {
 
     @PostMapping("/save")
     public String saveNewTodo(String title, String dueDate) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate inputDate = LocalDate.parse(dueDate, formatter);
-        todoService.addTodo(title, inputDate);
+        todoService.addTodo(title, dueDate);
         return "redirect:/todo/list";
     }
 

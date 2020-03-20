@@ -39,4 +39,8 @@ public class PostService {
             postRepository.save(post);
         }
     }
+
+    public void addNewPost(String title, String URL){
+        postRepository.save(new Post(title, URL));
+    }
 }

@@ -17,7 +17,7 @@ public class PostController {
 
     @GetMapping(value = "/")
     public String listOfPosts(Model model){
-        model.addAttribute("posts", postService.findAll());
+        model.addAttribute("posts", postService.listingPostDescendingOrder());
         return "postlists";
     }
 

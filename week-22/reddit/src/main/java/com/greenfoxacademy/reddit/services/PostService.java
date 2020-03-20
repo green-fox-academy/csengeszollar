@@ -48,4 +48,8 @@ public class PostService {
       Optional<Post> optional = postRepository.findById(id);
         return optional.orElse(null);
     }
+
+    public Iterable<Post> listingPostDescendingOrder(){
+        return postRepository.findAllByOrderByNumberOfVotingDesc();
+    }
 }

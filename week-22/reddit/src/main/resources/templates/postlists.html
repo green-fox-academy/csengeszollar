@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Post list</title>
+    <link rel="stylesheet" th:href="@{/stylesheet.css}"  />
+</head>
+<body>
+<a href="/submit">Submit new post</a>
+<h1 class="title">Trending posts</h1>
+<table>
+    <tr th:each="post : ${posts}" th:object="${post}">
+        <td th:text="*{numberOfVoting}"> </td>
+        <td><a href=""> + </a></td>
+        <td><a href=""> - </a></td>
+        <td><a th:href="*{URL}" th:text="*{title}"></a></td>
+    </tr>
+</table>
+</body>
+</html>

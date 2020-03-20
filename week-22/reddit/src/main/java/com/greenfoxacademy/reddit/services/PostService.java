@@ -43,4 +43,9 @@ public class PostService {
     public void addNewPost(String title, String URL){
         postRepository.save(new Post(title, URL));
     }
+
+    public Post findById(long id){
+      Optional<Post> optional = postRepository.findById(id);
+        return optional.orElse(null);
+    }
 }

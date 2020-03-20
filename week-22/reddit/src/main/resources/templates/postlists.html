@@ -11,8 +11,15 @@
 <table>
     <tr th:each="post : ${posts}" th:object="${post}">
         <td th:text="*{numberOfVoting}"> </td>
-        <td><a href=""> + </a></td>
-        <td><a href=""> - </a></td>
+        <td>
+            <form action="#" th:action="@{'/upvote?id=' + ${post.id}}" th:method="put" >
+            <button> + </button>
+            </form>
+            <form action="#" th:action="@{'/downvote?id=' + ${post.id}}" th:method="post" >
+                <button> - </button>
+            </form>
+
+        </td>
         <td><a th:href="*{URL}" th:text="*{title}"></a></td>
     </tr>
 </table>

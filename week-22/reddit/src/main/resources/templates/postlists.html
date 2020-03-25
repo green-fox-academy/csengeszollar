@@ -3,22 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Post list</title>
-    <link rel="stylesheet" th:href="@{/stylesheet.css}"  />
+    <link rel="stylesheet" th:href="@{/stylesheet.css}"/>
 </head>
 <body>
-<a href="/submit">Submit new post</a>
+<!--<h1 th:if="${userId} != null" th:text="'Hello,' + ${user.name} + '!'"></h1>-->
+<a th:if="${userId} != null" th:href="'/' + ${userId} + '/submit'">Submit new post</a>
+<a th:unless="${userId} != null" href="/login">To submit new post please login</a>
 <h1 class="title">Trending posts</h1>
 <table>
     <tr th:each="post : ${posts}" th:object="${post}">
-        <td th:text="*{numberOfVoting}"> </td>
+        <td th:text="*{numberOfVoting}"></td>
         <td>
-            <form action="#" th:action="@{'/upvote?id=' + ${post.id}}" th:method="put" >
-            <button> + </button>
+            <form action="#" th:action="@{'/' + ${userId} + '/upvote?postId=' + ${post.id}}" method="post">
+            <button type="submit"> + </button>
             </form>
         </td>
         <td>
-            <form action="#" th:action="@{'/downvote?id=' + ${post.id}}" th:method="post" >
-                <button> - </button>
+            <form action="#" th:action="@{'/' + ${userId} + '/downvote?postId=' + ${post.id}}" th:method="post">
+                <button type="submit"> - </button>
             </form>
         </td>
         <td><a th:href="*{URL}" th:text="*{title}"></a></td>

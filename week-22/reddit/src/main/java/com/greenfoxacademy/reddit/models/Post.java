@@ -1,9 +1,6 @@
 package com.greenfoxacademy.reddit.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Post {
@@ -13,6 +10,8 @@ public class Post {
     private int numberOfVoting;
     private String title;
     private String URL;
+    @ManyToOne
+    private User user;
 
     public Post() {
     }
@@ -53,5 +52,13 @@ public class Post {
 
     public void setURL(String URL) {
         this.URL = URL;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

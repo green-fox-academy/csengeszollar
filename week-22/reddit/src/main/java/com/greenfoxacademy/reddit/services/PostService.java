@@ -40,8 +40,8 @@ public class PostService {
         }
     }
 
-    public void addNewPost(String title, String URL){
-        postRepository.save(new Post(title, URL));
+    public void addNewPost(Post post){
+        postRepository.save(post);
     }
 
     public Post findById(long id){

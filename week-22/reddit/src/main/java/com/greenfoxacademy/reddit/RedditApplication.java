@@ -24,6 +24,6 @@ public class RedditApplication implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         postRepository.save(new Post("covid-19", "https://koronavirus.gov.hu/"));
-        postRepository.save(new Post("Eszenyi botrany", "https://librarius.hu/2020/03/13/eszenyi-enikot-szineszek-megalazasaval-vadoljak-de-o-maradhat-a-vigszinhaz-igazgatoja/"));
+        postRepository.save(new Post("Vigszinhaz botrany", "https://librarius.hu/2020/03/13/eszenyi-enikot-szineszek-megalazasaval-vadoljak-de-o-maradhat-a-vigszinhaz-igazgatoja/"));
     }
 }

@@ -22,6 +22,13 @@ public class Post {
         this.URL = URL;
     }
 
+    public Post(String title, String URL, User user) {
+        this.title = title;
+        this.URL = URL;
+        this.user = user;
+        this.numberOfVoting = 0;
+    }
+
     public int getNumberOfVoting() {
         return numberOfVoting;
     }

@@ -20,9 +20,14 @@ public class User {
         posts = new ArrayList<>();
     }
 
-    public User(String name, String password) {
+    public User(List<Post> posts) {
+        this.posts = posts;
+    }
+
+    public User(String name, String password, List<Post> posts) {
         this.name = name;
-        posts = new ArrayList<>();
+        this.password = password;
+        this.posts = posts;
     }
 
     public User(String name) {

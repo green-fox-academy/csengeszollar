@@ -30,7 +30,7 @@ public class PostController {
     }
 
     @PostMapping(value = "/{userId}/upvote")
-    public String incrementVoting(@RequestParam Long postId, @PathVariable(name = "userId") Long userId) {
+    public String incrementVoting(Long postId, @PathVariable(name = "userId") Long userId) {
         postService.incrementVoting(postId);
         return "redirect:/" + userId;
 
@@ -48,7 +48,7 @@ public class PostController {
     }
 
     @PostMapping(value = "/{userId}/downvote")
-    public String decrementVoting(@RequestParam Long postId, @PathVariable(name = "userId") String userId) {
+    public String decrementVoting(Long postId, @PathVariable(name = "userId") String userId) {
         postService.decrementVoting(postId);
         return "redirect:/" + userId;
 //        if (userId != null) {
@@ -65,13 +65,16 @@ public class PostController {
     }
 
     @GetMapping(value = "/{userId}/submit")
-    public String renderSubmitPage(@PathVariable(name = "userId") Long userId) {
+    public String renderSubmitPage(Model model, @PathVariable(name = "userId") Long userId) {
+        model.addAttribute("user", userService.findById(userId));
         return "submit-post";
     }
 
     @PostMapping(value = "/{userId}/submit")
     public String submitNewPost(@ModelAttribute Post post, @PathVariable(name = "userId") Long userId) {
+        post.setUser(userService.findById(userId));
         postService.addNewPost(post);
+        userService.findById(userId).addPost(post);
         return "redirect:/" + userId;
     }
 }

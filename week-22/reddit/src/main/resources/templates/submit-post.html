@@ -17,6 +17,9 @@
         <input id="url" name="URL" type="text">
     </div>
     <div>
+        <input type="hidden" name="userId" th:value="${user.id}">
+    </div>
+    <div>
         <button class="submit-button" type="submit">Submit</button>
     </div>
 </form>

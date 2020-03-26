@@ -1,5 +1,6 @@
 package com.greenfoxacademy.reddit.services;
 
+import com.greenfoxacademy.reddit.models.Post;
 import com.greenfoxacademy.reddit.models.User;
 import com.greenfoxacademy.reddit.repositories.UserRepository;
 import org.springframework.stereotype.Service;
@@ -28,10 +29,9 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public User findById(Long id) {
+    public User findById(long id) {
         Optional<User> optional = userRepository.findById(id);
         return optional.orElse(null);
     }
-
 
 }

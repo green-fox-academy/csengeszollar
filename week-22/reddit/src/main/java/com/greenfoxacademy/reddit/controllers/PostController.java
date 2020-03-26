@@ -23,38 +23,45 @@ public class PostController {
     public String listOfPosts(Model model, @PathVariable(required = false, name = "userId") Long userId) {
         model.addAttribute("posts", postService.listingPostDescendingOrder());
         model.addAttribute("userId", userId);
-//          model.addAttribute("user", userService.findById(userId));
+        if (userId != null) {
+            model.addAttribute("user", userService.findById(userId));
+        }
         return "postlists";
     }
 
     @PostMapping(value = "/{userId}/upvote")
-    public String incrementVoting(@RequestParam Long postId, @PathVariable(name = "userId") String userId) {
-        if (userId != null) {
-            try {
-                Long userNumber = Long.parseLong(userId);
-                postService.incrementVoting(postId);
-                return "redirect:/" + userNumber;
-            } catch (NumberFormatException e) {
-                return "redirect:/login";
-            }
-        } else {
-            return "redirect:/login";
-        }
+    public String incrementVoting(@RequestParam Long postId, @PathVariable(name = "userId") Long userId) {
+        postService.incrementVoting(postId);
+        return "redirect:/" + userId;
+
+        //        if (userId != null) {
+//            try {
+//                Long userNumber = Long.parseLong(userId);
+//                postService.incrementVoting(postId);
+//                return "redirect:/" + userNumber;
+//            } catch (NumberFormatException e) {
+//                return "redirect:/login";
+//            }
+//        } else {
+//            return "redirect:/login";
+//        }
     }
 
     @PostMapping(value = "/{userId}/downvote")
     public String decrementVoting(@RequestParam Long postId, @PathVariable(name = "userId") String userId) {
-        if (userId != null) {
-            try {
-                Long userNumber = Long.parseLong(userId);
-                postService.decrementVoting(postId);
-                return "redirect:/" + userNumber;
-            } catch (NumberFormatException e) {
-                return "redirect:/login";
-            }
-        } else {
-            return "redirect:/login";
-        }
+        postService.decrementVoting(postId);
+        return "redirect:/" + userId;
+//        if (userId != null) {
+//            try {
+//                Long userNumber = Long.parseLong(userId);
+//                postService.decrementVoting(postId);
+//                return "redirect:/" + userNumber;
+//            } catch (NumberFormatException e) {
+//                return "redirect:/login";
+//            }
+//        } else {
+//            return "redirect:/login";
+//        }
     }
 
     @GetMapping(value = "/{userId}/submit")

@@ -25,8 +25,12 @@ public class UserController {
 
     @PostMapping(value = "/login")
     public String signIn(@RequestParam("name") String name, @RequestParam ("password") String password){
-          User user = userService.findByNameAndPassword(name, password);
-          return "redirect:/" + user.getId();
+        User user = userService.findByNameAndPassword(name, password);
+        if (user != null) {
+            return "redirect:/" + user.getId();
+        }else {
+            return "redirect:/login";
+        }
     }
 
     @GetMapping(value = "/register")

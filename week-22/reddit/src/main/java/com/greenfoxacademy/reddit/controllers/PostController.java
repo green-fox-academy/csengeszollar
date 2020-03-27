@@ -72,9 +72,9 @@ public class PostController {
 
     @PostMapping(value = "/{userId}/submit")
     public String submitNewPost(@ModelAttribute Post post, @PathVariable(name = "userId") Long userId) {
-        post.setUser(userService.findById(userId));
-        postService.addNewPost(post);
-        userService.findById(userId).addPost(post);
+//        post.setUser(userService.findById(userId));
+//        postService.addNewPost(post);
+        userService.addNewPost(userId, post);
         return "redirect:/" + userId;
     }
 }

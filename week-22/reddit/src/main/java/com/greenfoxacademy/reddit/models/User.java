@@ -13,7 +13,7 @@ public class User {
     private long id;
     private String name;
     private String password;
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Post> posts;
 
     public User() {

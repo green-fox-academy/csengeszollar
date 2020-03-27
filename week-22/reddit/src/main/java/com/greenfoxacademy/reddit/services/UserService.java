@@ -34,4 +34,10 @@ public class UserService {
         return optional.orElse(null);
     }
 
+    public void addNewPost(long userId, Post post) {
+        User user = findById(userId);
+        user.addPost(post);
+        post.setUser(user);
+        userRepository.save(user);
+    }
 }

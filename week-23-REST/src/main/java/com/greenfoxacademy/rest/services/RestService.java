@@ -1,4 +1,8 @@
 package com.greenfoxacademy.rest.services;
 
-public class Service {
+import org.springframework.stereotype.Service;
+
+@Service
+public class RestService {
+
 }

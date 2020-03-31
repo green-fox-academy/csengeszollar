@@ -1,9 +1,5 @@
 package com.greenfoxacademy.rest.models;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class ArrayHandler {
     private String what;
     private int[] numbers;

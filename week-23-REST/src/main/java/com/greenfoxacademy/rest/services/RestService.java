@@ -3,8 +3,6 @@ package com.greenfoxacademy.rest.services;
 import com.greenfoxacademy.rest.models.ArrayHandler;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class RestService {
 
@@ -20,4 +18,6 @@ public class RestService {
     public int[] doublingArrayHandler(ArrayHandler handler) {
         return handler.doubling();
     }
+
+
 }

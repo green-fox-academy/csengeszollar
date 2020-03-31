@@ -69,4 +69,5 @@ public class User {
     public void addPost(Post post) {
         posts.add(post);
     }
+
 }

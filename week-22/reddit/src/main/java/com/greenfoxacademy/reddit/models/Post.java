@@ -1,6 +1,7 @@
 package com.greenfoxacademy.reddit.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Post {
@@ -12,6 +13,8 @@ public class Post {
     private String URL;
     @ManyToOne
     private User user;
+    @OneToMany (cascade = CascadeType.ALL)
+    private List<Vote> votes;
 
     public Post() {
     }
@@ -67,5 +70,17 @@ public class Post {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public List<Vote> getVotes() {
+        return votes;
+    }
+
+    public void setVotes(List<Vote> votes) {
+        this.votes = votes;
+    }
+
+    public void addVoteToList(Vote vote) {
+        votes.add(vote);
     }
 }

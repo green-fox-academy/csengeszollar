@@ -1,6 +1,7 @@
 package com.greenfoxacademy.reddit.controllers;
 
 import com.greenfoxacademy.reddit.models.Post;
+import com.greenfoxacademy.reddit.models.User;
 import com.greenfoxacademy.reddit.services.PostService;
 import com.greenfoxacademy.reddit.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,9 @@ public class PostController {
 
     @PostMapping(value = "/{userId}/upvote")
     public String incrementVoting(Long postId, @PathVariable(name = "userId") Long userId) {
-        postService.incrementVoting(postId);
+        User user = userService.findById(userId);
+        postService.incrementVoting(postId, user);
+
         return "redirect:/" + userId;
 
         //        if (userId != null) {
@@ -48,8 +51,9 @@ public class PostController {
     }
 
     @PostMapping(value = "/{userId}/downvote")
-    public String decrementVoting(Long postId, @PathVariable(name = "userId") String userId) {
-        postService.decrementVoting(postId);
+    public String decrementVoting(Long postId, @PathVariable(name = "userId") Long userId) {
+        User user = userService.findById(userId);
+        postService.decrementVoting(postId, user);
         return "redirect:/" + userId;
 //        if (userId != null) {
 //            try {

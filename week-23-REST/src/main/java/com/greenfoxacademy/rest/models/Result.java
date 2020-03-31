@@ -2,18 +2,17 @@ package com.greenfoxacademy.rest.models;
 
 public class Result {
 
-    private Integer result;
+    private int result;
 
-    public Result(Integer result) {
+    public Result(int result) {
         this.result = result;
     }
 
-
-    public Integer getResult() {
+    public int getResult() {
         return result;
     }
 
-    public void setResult(Integer result) {
+    public void setResult(int result) {
         this.result = result;
     }
 }

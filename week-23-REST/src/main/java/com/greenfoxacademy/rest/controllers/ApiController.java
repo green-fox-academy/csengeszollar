@@ -2,11 +2,19 @@ package com.greenfoxacademy.rest.controllers;
 
 import com.greenfoxacademy.rest.models.*;
 
+import com.greenfoxacademy.rest.services.RestService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class ApiController {
+
+    private RestService service;
+
+    public ApiController(RestService service) {
+        this.service = service;
+    }
+
     @GetMapping(value = "/doubling")
     public ResponseEntity doubling(@RequestParam(required = false) Integer input) {
         if (input == null) {
@@ -55,4 +63,17 @@ public class ApiController {
             return ResponseEntity.status(404).body(new ErrorMessage("No action found"));
         }
     }
+
+    @PostMapping(value = "/arrays")
+        public ResponseEntity arrayHandler(@RequestBody ArrayHandler handler) {
+        if (handler.getWhat().equals("sum") || handler.getWhat().equals("multiply")) {
+            return ResponseEntity.status(200).body(new Result(service.arrayHandler(handler, handler.getWhat())));
+        } else if (handler.getWhat().equals("double")){
+            return ResponseEntity.status(200).body(new ArrayResult(service.doublingArrayHandler(handler)));
+        }
+    else {
+            return ResponseEntity.status(404).body(new ErrorMessage("Please provide what to do with the numbers!"));
+        }
+    }
+
 }

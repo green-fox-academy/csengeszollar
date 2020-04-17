@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<ul>
+    <li>
+        <a href="">Information</a>
+    </li>
+</ul>
+<div class="fox image">
+    <img src="greenfox.png" alt="can not find fox">
+</div>
+<div class="characteristic">
+    <p th:text="'This is ' + ${name} + '. Currently living on ' + ${food} + ' and ' + ${drink} + '. (S)he knows ' + ${fox.numberOfTricks()} + ' trick(s).'"></p>
+</div>
+<h1>Known tricks</h1>
+<p th:if="${tricks.isEmpty()}">You know no tricks yet. Go learn some.</p>
+<ul>
+    <li th:unless="${tricks.isEmpty()}" th:each="trick : ${tricks}" th:text="${trick}"></li>
+</ul>
+
+<!--<ul>-->
+<!--    <li> write HTML</li>-->
+<!--    <li> code in Java</li>-->
+<!--</ul>-->
+
+</body>
+</html>

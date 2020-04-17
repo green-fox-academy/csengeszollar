@@ -26,6 +26,11 @@ public class FoxService {
         return null;
     }
 
+    public void setFoodAndDrink(String name, String food, String drink){
+        findFox(name).setFood(food);
+        findFox(name).setDrink(drink);
+    }
+
     public void save(String name) {
         if (findFox(name) == null) {
             foxes.add(new Fox(name));

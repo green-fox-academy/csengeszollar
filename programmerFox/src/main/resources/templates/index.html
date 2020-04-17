@@ -9,17 +9,21 @@
     <li>
         <a href="">Information</a>
     </li>
+    <li>
+        <a th:href="'/nutritionStore?name=' + ${fox.name}">Nutrition Store</a>
+    </li>
+
 </ul>
 <div class="fox image">
     <img src="greenfox.png" alt="can not find fox">
 </div>
 <div class="characteristic">
-    <p th:text="'This is ' + ${name} + '. Currently living on ' + ${food} + ' and ' + ${drink} + '. (S)he knows ' + ${fox.numberOfTricks()} + ' trick(s).'"></p>
+    <p th:text="'This is ' + ${fox.name} + '. Currently living on ' + ${fox.food} + ' and ' + ${fox.drink} + '. (S)he knows ' + ${fox.numberOfTricks()} + ' trick(s).'"></p>
 </div>
 <h1>Known tricks</h1>
-<p th:if="${tricks.isEmpty()}">You know no tricks yet. Go learn some.</p>
+<p th:if="${fox.getTricks().isEmpty()}">You know no tricks yet. Go learn some.</p>
 <ul>
-    <li th:unless="${tricks.isEmpty()}" th:each="trick : ${tricks}" th:text="${trick}"></li>
+    <li th:unless="${fox.getTricks().isEmpty()}" th:each="trick : ${fox.getTricks()}" th:text="${trick}"></li>
 </ul>
 
 <!--<ul>-->

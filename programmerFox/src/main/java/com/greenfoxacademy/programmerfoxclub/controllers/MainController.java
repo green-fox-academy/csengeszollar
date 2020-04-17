@@ -18,16 +18,16 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String renderIndexPage(Model model, @RequestParam(required = false) String name) {
+    public String renderIndexPage(Model model, @RequestParam(required = false) String name) {    //ide kell request param? @RequestParam(required = false) String name, vagy eleg a string name?
         if (foxService.findFox(name) == null || name == null || name.equals("")){
 //            model.addAttribute("error", "You have provided a name that has not been used before, add it as a new one!");
             return "redirect:/login";
         } else {
             model.addAttribute("fox", foxService.findFox(name));
-            model.addAttribute("name", name);
-            model.addAttribute("food", foxService.findFox(name).getFood());
-            model.addAttribute("drink", foxService.findFox(name).getDrink());
-            model.addAttribute("tricks", foxService.findFox(name).getTricks());
+//            model.addAttribute("name", name);
+//            model.addAttribute("food", foxService.findFox(name).getFood());
+//            model.addAttribute("drink", foxService.findFox(name).getDrink());
+//            model.addAttribute("tricks", foxService.findFox(name).getTricks());
             return "index";
         }
     }
@@ -38,9 +38,10 @@ public class MainController {
     }
 
     @PostMapping("/login")
-    public String renderPostLogin(@RequestParam String name) {
+    public String renderPostLogin(@RequestParam(required = false) String name) {  //ide kell a request param? tehat: @RequestParam(required = false) String name
         foxService.save(name);
         return "redirect:/?name=" + name;
     }
+
 
 }

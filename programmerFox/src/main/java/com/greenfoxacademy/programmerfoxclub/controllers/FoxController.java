@@ -2,6 +2,7 @@ package com.greenfoxacademy.programmerfoxclub.controllers;
 
 import com.greenfoxacademy.programmerfoxclub.models.Drink;
 import com.greenfoxacademy.programmerfoxclub.models.Food;
+import com.greenfoxacademy.programmerfoxclub.models.Trick;
 import com.greenfoxacademy.programmerfoxclub.services.FoxService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class FoxController {
-    FoxService foxService;
+    private FoxService foxService;
 
     public FoxController(FoxService foxService) {
         this.foxService = foxService;
@@ -34,7 +35,14 @@ public class FoxController {
 
     @GetMapping("/trickCenter")
     public String renderTrickCenterPage(@RequestParam String name, Model model){
+        model.addAttribute("name", name);
+        model.addAttribute("tricks", Trick.getTricks());
         return "trickCenter";
     }
 
+    @PostMapping("/trickCenter")
+    public String learningNewTricks(@RequestParam String name, String prick){
+        foxService.learningNewTrick(name, prick);
+        return "redirect:/?name=" + name;
+    }
 }

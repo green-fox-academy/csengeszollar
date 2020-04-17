@@ -36,4 +36,8 @@ public class FoxService {
             foxes.add(new Fox(name));
         }
     }
+
+    public void learningNewTrick(String name, String trick){
+        findFox(name).getTricks().add(trick);
+    }
 }

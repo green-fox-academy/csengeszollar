@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
-    FoxService foxService;
+    private FoxService foxService;
 
     @Autowired
     public MainController(FoxService foxService) {
@@ -42,6 +42,4 @@ public class MainController {
         foxService.save(name);
         return "redirect:/?name=" + name;
     }
-
-
 }

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Index</title>
+<!--    <link rel="stylesheet" th:href="@{/style.css}" />-->
+    <meta charset="utf-8" />
+</head>
+<body>
+<div>
+    <form action="/save-link" method="post">
+        <div>
+            <label for="url">URL</label>
+        </div>
+        <div>
+            <input id="url" type="text" name="url">
+        </div>
+        <div>
+            <label for="alias">Alias</label>
+        </div>
+        <div>
+            <input id="alias" type="text" name="alias">
+        </div>
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

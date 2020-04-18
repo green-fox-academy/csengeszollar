@@ -2,6 +2,9 @@ package com.greenfoxacademy.programmerfoxclub.models;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public enum Trick {
     WHISTLE("whistle"),
@@ -15,8 +18,12 @@ public enum Trick {
         this.name = name;
     }
 
-    public static List<Trick> getTricks(){
-        return Arrays.asList(values());
+    public static List<String> getTricks(){
+//         return Arrays.asList(values());
+        List<String> trickList = Stream.of(Trick.values())
+                .map(trick -> Objects.toString(trick, null))
+                .collect(Collectors.toList());
+        return trickList;
     }
 
     @Override

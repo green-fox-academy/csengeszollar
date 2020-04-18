@@ -2,6 +2,7 @@ package com.greenfoxacademy.programmerfoxclub.controllers;
 
 import com.greenfoxacademy.programmerfoxclub.models.Drink;
 import com.greenfoxacademy.programmerfoxclub.models.Food;
+import com.greenfoxacademy.programmerfoxclub.models.Fox;
 import com.greenfoxacademy.programmerfoxclub.models.Trick;
 import com.greenfoxacademy.programmerfoxclub.services.FoxService;
 import org.springframework.stereotype.Controller;
@@ -36,7 +37,7 @@ public class FoxController {
     @GetMapping("/trickCenter")
     public String renderTrickCenterPage(@RequestParam String name, Model model){
         model.addAttribute("name", name);
-        model.addAttribute("tricks", Trick.getTricks());
+        model.addAttribute("tricks", foxService.findFox(name).removingTricksFoxAlreadyKnows());
         return "trickCenter";
     }
 

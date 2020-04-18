@@ -66,4 +66,12 @@ public class Fox {
             return tricks.size();
         }
     }
+
+    public List<String> removingTricksFoxAlreadyKnows() {
+      List<String> trickList = Trick.getTricks();
+        for (String trick : tricks) {
+            trickList.remove(trick);
+        }
+        return trickList;
+    }
 }

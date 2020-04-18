@@ -38,6 +38,8 @@ public class FoxService {
     }
 
     public void learningNewTrick(String name, String trick){
-        findFox(name).getTricks().add(trick);
+        if (!findFox(name).getTricks().contains(trick)) {
+            findFox(name).getTricks().add(trick);
+        }
     }
 }

@@ -20,7 +20,8 @@
     </li>
 </ul>
 <form th:action="'/trickCenter?name=' + ${name}" th:method="post">
-    <div>
+    <p th:if="${tricks.isEmpty()}">Congratulations, you've learned all of the available tricks!!!</p>
+    <div th:unless="${tricks.isEmpty()}">
         <label for="tricks">Tricks</label>
         <select id="tricks" name="prick">
             <option th:each="trick : ${tricks}" th:text="${trick}"></option>

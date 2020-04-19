@@ -6,5 +6,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface URLAliaserRepository extends CrudRepository<URLAliaser, Long> {
-    URLAliaser findAllByAlias(String alias);
+    URLAliaser findByAlias(String alias);
+
 }

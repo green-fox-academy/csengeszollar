@@ -1,5 +1,7 @@
 package com.greenfoxacademy.urlaliaser.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.Random;
 
@@ -12,26 +14,24 @@ public class URLAliaser {
     private String url;
     private String alias;
     private int hitCount;
+    @JsonIgnore
     private int secretCode;
 
     public URLAliaser(String url, String alias, int hitCount) {
         this.url = url;
         this.alias = alias;
         this.hitCount = hitCount;
-        Random rand = new Random();
-        this.secretCode = rand.nextInt(10000);
+        this.secretCode = randomNumber();
     }
 
     public URLAliaser() {
-        Random rand = new Random();
-        this.secretCode = rand.nextInt(10000);
+        this.secretCode = randomNumber();
     }
 
     public URLAliaser(String url, String alias) {
         this.url = url;
         this.alias = alias;
-        Random rand = new Random();
-        this.secretCode = rand.nextInt(10000);
+        this.secretCode = randomNumber();
     }
 
     public Long getId() {
@@ -72,5 +72,9 @@ public class URLAliaser {
 
     public void setSecretCode(int secretCode) {
         this.secretCode = secretCode;
+    }
+
+    public int randomNumber(){
+        return (int)(Math.random()*9000) + 1000;
     }
 }

@@ -17,18 +17,20 @@ public class URLAliaserService {
         this.urlAliaserRepository = urlAliaserRepository;
     }
 
+    public URLAliaser findByAlias(String alias){
+       return urlAliaserRepository.findByAlias(alias);
+    }
+
     public Iterable<URLAliaser> findAll(){
         return urlAliaserRepository.findAll();
     }
 
     public boolean isAliasTaken(String alias){
-        return urlAliaserRepository.findAllByAlias(alias) != null;
+        return urlAliaserRepository.findByAlias(alias) != null;
     }
 
     public void saveURLAndAlias(URLAliaser urlAliaser){
-        if (!isAliasTaken(urlAliaser.getAlias())) {
             urlAliaserRepository.save(urlAliaser);
-        }
     }
 }
 

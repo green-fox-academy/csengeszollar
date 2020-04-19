@@ -7,6 +7,8 @@
 </head>
 <body>
 <div>
+    <p th:if="${success}" th:utext="'Your URL is aliased to <b>' + ${success.alias} + '</b>  and your secret code is <b>' + ${success.secretCode} + '</b>.'"></p>
+    <p th:if="${error}" th:text="${error}" style="color: red"></p>
     <form action="/save-link" method="post">
         <div>
             <label for="url">URL</label>

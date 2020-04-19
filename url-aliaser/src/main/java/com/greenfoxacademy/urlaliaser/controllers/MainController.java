@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+
 @Controller
 public class MainController {
 
@@ -22,12 +23,30 @@ public class MainController {
 
     @GetMapping("/")
     public String renderIndexPage() {
+//        if (message != null) {
+//            if (message.equals("error")) {
+//                model.addAttribute("error", "Your alias is already in use!");
+//            } else if (message.equals("success")) {
+//                model.addAttribute("success", "");
+//                model.addAttribute("urlAliaser", urlAliaserService.findByAlias(alias));
+//            }
+//        }
         return "index";
     }
 
     @PostMapping("/save-link")
-    public String addAliasToURL(@ModelAttribute URLAliaser urlAliaser){
-        urlAliaserService.saveURLAndAlias(urlAliaser);
-        return "redirect:/";
+    public String addAliasToURL(@ModelAttribute URLAliaser urlAliaser, Model model) {
+        if (!urlAliaserService.isAliasTaken(urlAliaser.getAlias())) {
+            urlAliaserService.saveURLAndAlias(urlAliaser);
+            model.addAttribute("success", urlAliaser);
+        } else {
+            model.addAttribute("error", "Your alias is already in use");
+        }
+        return "index";
+//            return "redirect:/?message=success&?alias="+ urlAliaser.getAlias();
+//        } else {
+//            return "redirect:/?message=error&?url=" + urlAliaser.getUrl() + "&?alias=" + urlAliaser.getAlias();
+//        }
+//        }
     }
 }

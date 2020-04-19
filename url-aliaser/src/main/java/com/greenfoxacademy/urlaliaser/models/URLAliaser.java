@@ -3,10 +3,8 @@ package com.greenfoxacademy.urlaliaser.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.Random;
 
 @Entity
-//@Table(name = "url_aliaser")
 public class URLAliaser {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -74,7 +72,7 @@ public class URLAliaser {
         this.secretCode = secretCode;
     }
 
-    public int randomNumber(){
-        return (int)(Math.random()*9000) + 1000;
+    public int randomNumber() {
+        return (int) (Math.random() * 9000) + 1000;
     }
 }

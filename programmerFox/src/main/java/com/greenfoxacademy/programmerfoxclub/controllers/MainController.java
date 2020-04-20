@@ -38,7 +38,7 @@ public class MainController {
     }
 
     @PostMapping("/login")
-    public String renderPostLogin(@RequestParam(required = false) String name) {  //ide kell a request param? tehat: @RequestParam(required = false) String name
+    public String renderPostLogin(String name) {  //ide kell a request param? tehat: @RequestParam(required = false) String name
         foxService.save(name);
         return "redirect:/?name=" + name;
     }

@@ -26,6 +26,7 @@ public class URLAliaser {
         this.secretCode = randomNumber();
     }
 
+
     public URLAliaser(String url, String alias) {
         this.url = url;
         this.alias = alias;

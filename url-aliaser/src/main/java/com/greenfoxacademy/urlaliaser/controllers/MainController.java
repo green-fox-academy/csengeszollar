@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MainController {
@@ -20,15 +21,16 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String renderIndexPage() {
-//        if (message != null) {
-//            if (message.equals("error")) {
-//                model.addAttribute("error", "Your alias is already in use!");
-//            } else if (message.equals("success")) {
-//                model.addAttribute("success", "");
-//                model.addAttribute("urlAliaser", urlAliaserService.findByAlias(alias));
-//            }
-//        }
+    public String renderIndexPage(@RequestParam(required = false) String message, @RequestParam(required = false) String url, @RequestParam(required = false) String alias, Model model ) {
+        if (message != null) {
+            if (message.equals("error")) {
+                model.addAttribute("url", url);
+                model.addAttribute("alias", alias);
+                model.addAttribute("error", "Your alias is already in use!");
+            } else if (message.equals("success")) {
+                model.addAttribute("urlAliaser", urlAliaserService.findByAlias(alias));
+            }
+        }
         return "index";
     }
 
@@ -36,15 +38,11 @@ public class MainController {
     public String addAliasToURL(@ModelAttribute URLAliaser urlAliaser, Model model) {
         if (!urlAliaserService.isAliasTaken(urlAliaser.getAlias())) {
             urlAliaserService.saveURLAndAlias(urlAliaser);
-            model.addAttribute("success", urlAliaser);
+//            model.addAttribute("succes", urlAliaser);
+            return "redirect:/?message=success&alias="+ urlAliaser.getAlias();
         } else {
-            model.addAttribute("error", "Your alias is already in use");
+            return "redirect:/?message=error&url=" + urlAliaser.getUrl() + "&alias=" + urlAliaser.getAlias();
+//            model.addAttribute("error", "Your alias is already in use");
         }
-        return "index";
-//            return "redirect:/?message=success&?alias="+ urlAliaser.getAlias();
-//        } else {
-//            return "redirect:/?message=error&?url=" + urlAliaser.getUrl() + "&?alias=" + urlAliaser.getAlias();
-//        }
-//        }
     }
 }

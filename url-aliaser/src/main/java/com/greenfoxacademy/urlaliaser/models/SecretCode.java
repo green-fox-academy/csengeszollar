@@ -7,11 +7,11 @@ public class SecretCode {
         this.secretCode = secretCode;
     }
 
-    public int getSecretCode() {
-        return secretCode;
+    public SecretCode() {
     }
 
-    public SecretCode() {
+    public int getSecretCode() {
+        return secretCode;
     }
 
     public void setSecretCode(int secretCode) {

@@ -7,20 +7,20 @@
 </head>
 <body>
 <div>
-    <p th:if="${success}" th:utext="'Your URL is aliased to <b>' + ${success.alias} + '</b>  and your secret code is <b>' + ${success.secretCode} + '</b>.'"></p>
+    <p th:if="${urlAliaser}" th:utext="'Your URL is aliased to <b>' + ${urlAliaser.alias} + '</b>  and your secret code is <b>' + ${urlAliaser.secretCode} + '</b>.'"></p>
     <p th:if="${error}" th:text="${error}" style="color: red"></p>
     <form action="/save-link" method="post">
         <div>
             <label for="url">URL</label>
         </div>
         <div>
-            <input id="url" type="text" name="url">
+            <input id="url" type="text" name="url" th:value="${url}">
         </div>
         <div>
             <label for="alias">Alias</label>
         </div>
         <div>
-            <input id="alias" type="text" name="alias">
+            <input id="alias" type="text" name="alias" th:value="${alias}">
         </div>
         <div>
             <button type="submit">Submit</button>

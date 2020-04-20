@@ -18,12 +18,13 @@ public class URLAliaser {
     public URLAliaser(String url, String alias, int hitCount) {
         this.url = url;
         this.alias = alias;
-        this.hitCount = hitCount;
+        this.hitCount = 0;
         this.secretCode = randomNumber();
     }
 
     public URLAliaser() {
         this.secretCode = randomNumber();
+        this.hitCount = 0;
     }
 
 
@@ -31,6 +32,7 @@ public class URLAliaser {
         this.url = url;
         this.alias = alias;
         this.secretCode = randomNumber();
+        this.hitCount = 0;
     }
 
     public Long getId() {

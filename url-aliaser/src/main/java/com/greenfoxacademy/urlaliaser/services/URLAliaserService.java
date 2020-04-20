@@ -47,6 +47,12 @@ public class URLAliaserService {
     public boolean doesSecretCodeExist(SecretCode secretCode) {
         return urlAliaserRepository.findBySecretCode(secretCode.getSecretCode()) != null;
     }
+
+    public void incrementHitCount(String alias) {
+       URLAliaser urlAliaser = findByAlias(alias);
+       urlAliaser.setHitCount(urlAliaser.getHitCount() + 1);
+       urlAliaserRepository.save(urlAliaser);
+    }
 }
 
 

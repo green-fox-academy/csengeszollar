@@ -5,10 +5,7 @@ import com.greenfoxacademy.urlaliaser.services.URLAliaserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MainController {
@@ -21,7 +18,7 @@ public class MainController {
     }
 
     @GetMapping("/")
-    public String renderIndexPage(@RequestParam(required = false) String message, @RequestParam(required = false) String url, @RequestParam(required = false) String alias, Model model ) {
+    public String renderIndexPage(@RequestParam(required = false) String message, @RequestParam(required = false) String url, @RequestParam(required = false) String alias, Model model) {
         if (message != null) {
             if (message.equals("error")) {
                 model.addAttribute("url", url);
@@ -39,10 +36,21 @@ public class MainController {
         if (!urlAliaserService.isAliasTaken(urlAliaser.getAlias())) {
             urlAliaserService.saveURLAndAlias(urlAliaser);
 //            model.addAttribute("succes", urlAliaser);
-            return "redirect:/?message=success&alias="+ urlAliaser.getAlias();
+            return "redirect:/?message=success&alias=" + urlAliaser.getAlias();
         } else {
             return "redirect:/?message=error&url=" + urlAliaser.getUrl() + "&alias=" + urlAliaser.getAlias();
 //            model.addAttribute("error", "Your alias is already in use");
         }
+    }
+
+    @GetMapping("/a/{alias}")
+    public String incrementHitCount(@PathVariable String alias) {
+        if (urlAliaserService.isAliasTaken(alias)) {
+            urlAliaserService.incrementHitCount(alias);
+            return "redirect:" + urlAliaserService.findByAlias(alias).getUrl();
+        } else {
+            return "redirect:/";
+        }
+
     }
 }

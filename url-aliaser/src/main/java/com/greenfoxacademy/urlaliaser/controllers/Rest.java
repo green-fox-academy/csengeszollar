@@ -37,4 +37,9 @@ public class Rest {
             }
         }
     }
+
+    @GetMapping(value = "/api/error")
+    public ResponseEntity error(){
+        return ResponseEntity.notFound().build();
+    }
 }

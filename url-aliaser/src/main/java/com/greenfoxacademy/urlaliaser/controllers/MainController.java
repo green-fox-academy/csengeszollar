@@ -32,25 +32,23 @@ public class MainController {
     }
 
     @PostMapping("/save-link")
-    public String addAliasToURL(@ModelAttribute URLAliaser urlAliaser, Model model) {
+    public String addAliasToURL(@ModelAttribute URLAliaser urlAliaser) {
         if (!urlAliaserService.isAliasTaken(urlAliaser.getAlias())) {
             urlAliaserService.saveURLAndAlias(urlAliaser);
-//            model.addAttribute("succes", urlAliaser);
             return "redirect:/?message=success&alias=" + urlAliaser.getAlias();
         } else {
             return "redirect:/?message=error&url=" + urlAliaser.getUrl() + "&alias=" + urlAliaser.getAlias();
-//            model.addAttribute("error", "Your alias is already in use");
         }
     }
 
     @GetMapping("/a/{alias}")
-    public String incrementHitCount(@PathVariable String alias) {
+    public String loadingAliasedURL(@PathVariable String alias) {
         if (urlAliaserService.isAliasTaken(alias)) {
             urlAliaserService.incrementHitCount(alias);
-            return "redirect:" + urlAliaserService.findByAlias(alias).getUrl();
+            String url = urlAliaserService.findByAlias(alias).getUrl();
+            return "redirect:https://" + url;
         } else {
-            return "redirect:/";
+            return "redirect:/api/error";
         }
-
     }
 }

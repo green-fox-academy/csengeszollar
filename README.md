@@ -5,5 +5,5 @@
 <a href="https://github.com/green-fox-academy/csengeszollar/tree/master/url-aliaser">URL-Aliaser orientation exam</a>
   </div>
   <div>
-  <a href="https://github.com/csengeszollar/griseus-orientation-retake-exam/tree/master/licensePlates">Licence Plates orientation exam</a>
+  <a href="https://github.com/csengeszollar/griseus-orientation-retake-exam">Licence Plates orientation exam</a>
   </div>

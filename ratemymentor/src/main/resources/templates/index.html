@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Index</title>
+    <link rel="stylesheet" th:href="@{/style.css}" />
+    <meta charset="utf-8" />
+</head>
+<body>
+<h1>Welcome to RateMyMentor!</h1>
+<h2>Give feedback for...</h2>
+<ul th:each="mentor : ${mentors}" th:object="${mentor}">
+    <li>
+        <a th:href="@{'/mentor/' + ${mentor.id}}" th:text="*{name}"></a>
+    </li>
+</ul>
+<h2>Can't see your mentors on the list? Add them below!</h2>
+<div>
+    <form action="/mentor" method="post">
+        <div>
+            <label for="name">Name</label>
+        </div>
+        <div>
+            <input id="name" type="text" name="name">
+        </div>
+        <div>
+            <label for="className">Class</label>
+        </div>
+        <div>
+            <select id="className" name="className">
+                <option th:each="className : ${classNames}"  th:value="${className.name}" th:text="${className.name}"></option>
+            </select>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>

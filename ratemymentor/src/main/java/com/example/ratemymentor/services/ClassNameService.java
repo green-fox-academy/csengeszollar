@@ -34,8 +34,4 @@ public class ClassNameService {
         mentor.setNamesOfClass(className);
         classNameRepository.save(className);
     }
-
-
-
-
 }

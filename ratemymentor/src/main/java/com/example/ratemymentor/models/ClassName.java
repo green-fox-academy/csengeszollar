@@ -12,7 +12,7 @@ public class ClassName {
     private Long id;
     @Column(unique = true)
     private String name;
-    @OneToMany(mappedBy = "namesOfClass")
+    @OneToMany
     private List<Mentor> mentors;
 
     public ClassName() {
@@ -22,6 +22,10 @@ public class ClassName {
     public ClassName(String name) {
         this.name = name;
         this.mentors = new ArrayList<>();
+    }
+
+    public void addMentor(Mentor mentor) {
+        mentors.add(mentor);
     }
 
     public Long getId() {
@@ -46,10 +50,6 @@ public class ClassName {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void addMentor(Mentor mentor) {
-        mentors.add(mentor);
     }
 
 }

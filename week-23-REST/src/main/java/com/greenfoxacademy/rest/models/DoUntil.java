@@ -1,5 +1,7 @@
 package com.greenfoxacademy.rest.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class DoUntil {
 
     private int until;

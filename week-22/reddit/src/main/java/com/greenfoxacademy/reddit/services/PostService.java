@@ -65,6 +65,8 @@ public class PostService {
         for (int i = 0; i < post.getVotes().size(); i++) {
             if (post.getVotes().get(i).getUser().equals(user)) {
                 return post.getVotes().get(i).isPositiveVote();
+            } else {
+
             }
         }
 

@@ -1,5 +1,6 @@
 package com.greenfoxacademy.rest.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.format.annotation.DateTimeFormat;
 
 
@@ -8,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
-import java.util.TimeZone;
 
 @Entity
 public class Log {
@@ -16,6 +16,7 @@ public class Log {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonIgnore
     private Date createdAt;
     private String endpoint;
     private String data;

@@ -35,8 +35,4 @@ public class MentorService {
         return mentor.orElse(null);
     }
 
-    public void addMentorToClass(Mentor mentor, ClassName className) {
-
-    }
-
 }

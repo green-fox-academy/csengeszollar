@@ -10,8 +10,6 @@ let secondList = [4, 5];
 
 if (secondList.length > firstList.length) {
     console.log("p2 is longer");
-}
-
-if (firstList.length > secondList.length) {
+} else {
     console.log("p1 is longer");
 }

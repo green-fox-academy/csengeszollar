@@ -14,3 +14,6 @@ names.splice(1,1);
 names.reverse().forEach(name => {
     console.log(name);
 });
+
+names.splice(0);
+console.log(names.length);

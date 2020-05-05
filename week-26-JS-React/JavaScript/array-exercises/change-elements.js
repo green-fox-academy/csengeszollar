@@ -2,9 +2,9 @@
 // -  Change the 8 to 4 with the `.map` method
 // -  Print the fourth element as a test
 
-let numbersToChange = [1, 2, 3, 8, 5, 6];
+let numbersToChange = [1, 2, 3, 8, 5, 6, "8"];
 
-let changedArr = numbersToChange.map(function (item) {
+let changedArr = numbersToChange.map(item => {
     if (item === 8) {
 return 4;
     } else {
@@ -13,6 +13,7 @@ return 4;
 });
 
 console.log(...changedArr);
+console.log(changedArr);
 console.log(changedArr[3]);
 
 // -  Increment the third element simply by accessing it

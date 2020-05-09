@@ -7,3 +7,6 @@
   <div>
   <a href="https://github.com/csengeszollar/griseus-orientation-retake-exam">Licence Plates orientation exam</a>
   </div>
+  <div>
+<a href="https://github.com/csengeszollar/golden-acorn-app">Golden Acorn App</a>
+</div>

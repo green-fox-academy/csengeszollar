@@ -12,7 +12,7 @@ constructor(props) {
     this.greetParent = this.greetParent.bind(this)
 }
 
-greetParent(childName) {
+ greetParent (childName) {
     alert(`Hello ${this.state.parentName} from ${childName}`)
 }
 

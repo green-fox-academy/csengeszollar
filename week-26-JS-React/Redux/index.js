@@ -1,8 +1,7 @@
 const redux = require('redux')
 const createStore = redux.createStore
-
+// action creator
 const BUY_CAKE = 'BUY_CAKE'
-
 
 function buyCake() {
     return {
@@ -11,6 +10,7 @@ function buyCake() {
    }
 }
 
+// reducer
 const initialState = {
     numOfCake: 10
 }
@@ -23,7 +23,7 @@ const reducer = (state = initialState, action) => {
         default: return state
     }
 }
-
+// with store
 const store = createStore(reducer)
 console.log('initial state', store.getState())
 const unsubscribe = store.subscribe(() => console.log('Updated state', store.getState()))
